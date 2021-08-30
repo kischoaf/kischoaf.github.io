@@ -1,7 +1,9 @@
+```
 ---
 title: Computer Build
 layout: page
 ---
+```
 
 ## Inspiration
 
