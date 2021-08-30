@@ -1,6 +1,4 @@
-```
 ---
 title: Project
 layout: page
 ---
-```
