@@ -1,7 +1,8 @@
 ---
-title: Computer Build
+title: NextCloud and Swag Instance
 layout: page
 ---
+
 
 ## Inspiration
 
