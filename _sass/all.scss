@@ -48,7 +48,7 @@ h2 {
 .card {
     display: flex;
     margin: 20px 30px;
-    background-color :lightslategray;
+    background-color : #264653;
     border-radius: .375rem;
     padding: 1.5em;
     font-size: 1.2em;
@@ -68,21 +68,23 @@ a {
     .title {
         font-size: 500;
         font-weight: bold;
+        color: white;
     }
 
     .location {
         font-size: medium;
         font-weight: 400;
+        color: white;
     }
 
     .dates {
         font-size: small;
-        color: #404040;
+        color: white;
     }
 
     .desc {
       font-size: small;
-      color:  #404040;
+      color: white;
     }
 }
 
