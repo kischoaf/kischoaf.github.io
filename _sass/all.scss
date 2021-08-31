@@ -5,9 +5,13 @@
 @import 'page';
 
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-family: "Open Sans", sans-serif;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -42,9 +46,6 @@ h2 {
 
 .card {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
     margin: 20px 30px;
     background-color: white;
     border-radius: .375rem;
