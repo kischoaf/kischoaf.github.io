@@ -45,6 +45,8 @@ h2 {
     text-align: center;
     color: white;
     font-size: x-large;
+    text-decoration: underline overline ;
+
 }
 
 .card {
@@ -77,11 +79,14 @@ a {
         font-size: medium;
         font-weight: 400;
         color: white;
+
     }
 
     .dates {
         font-size: small;
         color: white;
+        
+
     }
 
     .desc {
