@@ -42,7 +42,8 @@ h2 {
 
 .card {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
     align-items: center;
     margin: 20px 30px;
     background-color: white;
