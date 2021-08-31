@@ -2,8 +2,7 @@
 title: Computer Build
 layout: page
 ---
-![computer]
-(https://github.com/kischoaf/kischoaf.github.io/blob/main/assets/img/projects/3090.jpg?raw=true)
+<img src="../assets/img/projects/3090.jpg" alt="computer"/>
 
 ## Inspiration
 
