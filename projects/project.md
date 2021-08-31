@@ -3,7 +3,7 @@ title: Computer Build
 layout: page
 ---
 
-<img src="../assets/img/projects/3090.jpg" alt="computer" style="display: flex; justify-content: space-evenly; "/>
+[//]<img src="../assets/img/projects/3090.jpg" alt="computer" style="display: flex; justify-content: space-evenly; "/>
 
 ## Inspiration
 
