@@ -1,22 +1,19 @@
 <section id="experience" class="section">
     <div class="container">
         <h2 class="section-heading">Work Experience</h2>
-        <div class="timeline">
+        <div class="card-container">
             {% for item in site.data.experience %}
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    {% if item.logo %}
-                    <div class="timeline-logo">
-                        <img src="/assets/img/experience/{{ item.logo }}" alt="{{ item.company }} logo" loading="lazy">
-                    </div>
-                    {% endif %}
-                    <div class="timeline-info">
-                        <h3 class="title">{{ item.role }}</h3>
-                        <p class="location">{{ item.company }}</p>
-                        <p class="dates">{{ item.dates }}</p>
-                        <p class="desc">{{ item.desc }}</p>
-                    </div>
+            <div class="card fade-in">
+                {% if item.logo %}
+                <div class="icon">
+                    <img src="/assets/img/experience/{{ item.logo }}" alt="{{ item.company }} logo" loading="lazy">
+                </div>
+                {% endif %}
+                <div class="info">
+                    <p class="title">{{ item.role }}</p>
+                    <p class="location">{{ item.company }}</p>
+                    <p class="dates">{{ item.dates }}</p>
+                    <p class="desc">{{ item.desc }}</p>
                 </div>
             </div>
             {% endfor %}
