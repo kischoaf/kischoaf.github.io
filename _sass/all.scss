@@ -83,6 +83,46 @@ body {
   margin: 0 auto;
 }
 
+.experience-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: -1.5rem 0 2rem;
+  flex-wrap: wrap;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all $transition-speed ease;
+    text-decoration: none;
+  }
+
+  .btn-primary-custom {
+    background-color: $color-accent;
+    color: #FFFFFF;
+
+    &:hover {
+      background-color: $color-accent-hover;
+      color: #FFFFFF;
+    }
+  }
+
+  .btn-outline-custom {
+    border: 1.5px solid $color-border;
+    color: $color-text;
+
+    &:hover {
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+}
+
 // Card
 .card {
   display: flex;
@@ -194,5 +234,10 @@ a {
 
   .section-heading {
     font-size: 1.5rem;
+  }
+
+  .experience-actions {
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
   }
 }
