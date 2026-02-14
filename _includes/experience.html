@@ -27,24 +27,29 @@
     cards.forEach(function(card, i) {
         var fromLeft = (i % 2 === 0);
         card.style.opacity = '0';
-        card.style.transform = fromLeft ? 'translateX(-100vw)' : 'translateX(100vw)';
+        card.style.transform = fromLeft ? 'translateX(-80px)' : 'translateX(80px)';
     });
 
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                var card = entry.target;
-                var delay = Array.prototype.indexOf.call(cards, card) * 200;
+    var animated = false;
+    function animateCards() {
+        if (animated) return;
+        var section = document.getElementById('experience');
+        if (!section) return;
+        var rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            animated = true;
+            cards.forEach(function(card, i) {
                 setTimeout(function() {
                     card.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
                     card.style.opacity = '1';
                     card.style.transform = 'translateX(0)';
-                }, delay);
-                observer.unobserve(card);
-            }
-        });
-    }, { threshold: 0.1 });
+                }, i * 200);
+            });
+            window.removeEventListener('scroll', animateCards);
+        }
+    }
 
-    cards.forEach(function(card) { observer.observe(card); });
+    window.addEventListener('scroll', animateCards);
+    window.addEventListener('load', animateCards);
 })();
 </script>
