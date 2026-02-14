@@ -27,7 +27,7 @@
     cards.forEach(function(card, i) {
         var fromLeft = (i % 2 === 0);
         card.style.opacity = '0';
-        card.style.transform = fromLeft ? 'translateX(-60px)' : 'translateX(60px)';
+        card.style.transform = fromLeft ? 'translateX(-100vw)' : 'translateX(100vw)';
     });
 
     var observer = new IntersectionObserver(function(entries) {

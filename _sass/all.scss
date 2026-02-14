@@ -66,6 +66,7 @@ body {
 // Section wrapper
 .section {
   padding: $section-padding 0;
+  overflow: hidden;
 
   &:nth-child(even) {
     background-color: $color-bg-white;
