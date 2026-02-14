@@ -1,23 +1,4 @@
-// Entrance keyframes
-@keyframes slideFromLeft {
-  from { opacity: 0; transform: translateX(-60px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideFromRight {
-  from { opacity: 0; transform: translateX(60px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideFromBottom {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1); }
-}
+// Entrance transitions
 
 .hero {
   background-color: $color-bg-white;
@@ -39,8 +20,10 @@
     border: 4px solid $color-border;
     box-shadow: 0 2px 8px $color-shadow;
     opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 
-    &.animate { animation: scaleIn 0.7s ease-out forwards; }
+    &.animate { opacity: 1; transform: scale(1); }
   }
 
   h1 {
@@ -49,8 +32,10 @@
     color: $color-primary;
     margin-bottom: 0.5rem;
     opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
-    &.animate { animation: slideFromLeft 0.6s ease-out forwards; }
+    &.animate { opacity: 1; transform: translateX(0); }
   }
 
   .hero-tagline {
@@ -59,8 +44,10 @@
     font-weight: 500;
     margin-bottom: 1rem;
     opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
-    &.animate { animation: slideFromRight 0.6s ease-out forwards; }
+    &.animate { opacity: 1; transform: translateX(0); }
   }
 
   .hero-bio {
@@ -70,8 +57,10 @@
     max-width: 600px;
     margin: 0 auto 2rem;
     opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
-    &.animate { animation: slideFromBottom 0.6s ease-out forwards; }
+    &.animate { opacity: 1; transform: translateY(0); }
   }
 
   .hero-links {
@@ -79,8 +68,10 @@
     justify-content: center;
     gap: 1rem;
     opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
-    &.animate { animation: slideFromBottom 0.6s ease-out forwards; }
+    &.animate { opacity: 1; transform: translateY(0); }
 
     a {
       display: inline-flex;
