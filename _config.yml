@@ -6,20 +6,23 @@ baseurl: "/"
 url: "https://kischoaf.github.io/"
 twitter_username: kischoaf
 github_username: kischoaf
-linkedin_username: ""
+linkedin_username: "kieranschoaf"
 
 bio: >-
-  Network Engineer and IT professional with hands-on experience in
-  network infrastructure, server administration, and system optimization.
-  Passionate about building reliable systems and solving complex technical challenges.
+  Network engineer who learned more in my home lab than I did in most classrooms.
+  I lead healthcare network migrations (75+ switches, zero downtime), specializing
+  in Cisco infrastructure and Python automation. My lab is where I test everything
+  before production—new protocols, automation scripts, weird edge cases. If I can't
+  break it at home, I'm confident deploying it at scale. CCNA and Network+ certified,
+  DePaul Network Engineering grad, always building something.
 
 nav_links:
   - title: About
     url: "#about"
-  - title: Projects
-    url: "#projects"
   - title: Experience
     url: "#experience"
+  - title: Projects
+    url: "#projects"
   - title: Education
     url: "#education"
   - title: Contact
