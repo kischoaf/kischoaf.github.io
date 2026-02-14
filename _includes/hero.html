@@ -21,20 +21,31 @@
 </section>
 
 <script>
-window.addEventListener('load', function() {
-    var elements = [
-        { el: document.querySelector('.hero-photo'), delay: 100 },
-        { el: document.querySelector('.hero h1'), delay: 300 },
-        { el: document.querySelector('.hero-tagline'), delay: 500 },
-        { el: document.querySelector('.hero-bio'), delay: 700 },
-        { el: document.querySelector('.hero-links'), delay: 900 }
+(function() {
+    var items = [
+        { sel: '.hero-photo', from: 'opacity:0;transform:scale(0.5)', to: 'opacity:1;transform:scale(1)', dur: '0.7s', delay: 100 },
+        { sel: '.hero h1', from: 'opacity:0;transform:translateX(-60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.6s', delay: 300 },
+        { sel: '.hero-tagline', from: 'opacity:0;transform:translateX(60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.6s', delay: 500 },
+        { sel: '.hero-bio', from: 'opacity:0;transform:translateY(40px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 700 },
+        { sel: '.hero-links', from: 'opacity:0;transform:translateY(40px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 900 }
     ];
-    elements.forEach(function(item) {
-        if (item.el) {
-            setTimeout(function() {
-                item.el.classList.add('animate');
-            }, item.delay);
-        }
+
+    // Set initial hidden state immediately
+    items.forEach(function(item) {
+        var el = document.querySelector(item.sel);
+        if (el) el.style.cssText += item.from;
     });
-});
+
+    // Animate after page loads
+    window.addEventListener('load', function() {
+        items.forEach(function(item) {
+            var el = document.querySelector(item.sel);
+            if (!el) return;
+            setTimeout(function() {
+                el.style.transition = 'opacity ' + item.dur + ' ease-out, transform ' + item.dur + ' ease-out';
+                el.style.cssText += item.to;
+            }, item.delay);
+        });
+    });
+})();
 </script>
