@@ -123,6 +123,22 @@ body {
   }
 }
 
+#experience .experience-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+#experience .experience-actions .btn-primary-custom,
+#experience .experience-actions .btn-outline-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  white-space: nowrap;
+}
+
 // Card
 .card {
   display: flex;
