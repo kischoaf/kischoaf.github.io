@@ -164,6 +164,159 @@ a {
   }
 }
 
+// === Timeline ===
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 0;
+
+  // Center line
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient($color-accent, $color-border);
+    border-radius: 2px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 3rem;
+
+  // Odd items (1st, 3rd) = left side
+  &:nth-child(odd) {
+    left: 0;
+    text-align: right;
+
+    .timeline-card {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-logo {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+
+    .timeline-info p,
+    .timeline-info h3 {
+      text-align: right;
+    }
+
+    .timeline-dot {
+      right: -8px;
+      left: auto;
+    }
+  }
+
+  // Even items (2nd) = right side
+  &:nth-child(even) {
+    left: 50%;
+
+    .timeline-dot {
+      left: -8px;
+    }
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  background-color: $color-accent;
+  border: 3px solid $color-bg-white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px $color-accent;
+  z-index: 1;
+}
+
+.timeline-card {
+  display: flex;
+  background-color: $color-bg-white;
+  border: 1px solid $color-border;
+  border-radius: $card-radius;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px $color-shadow;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px $color-shadow-hover;
+    transform: translateY(-3px);
+  }
+}
+
+.timeline-logo {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  margin-right: 1rem;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+.timeline-info {
+  flex: 1;
+
+  h3, p {
+    margin: 0 0 0.25rem 0;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  .location {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $color-text;
+  }
+
+  .dates {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+    margin-bottom: 0.5rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+    color: $color-text;
+    line-height: 1.6;
+    text-align: left !important;
+  }
+}
+
+// Fade-in animation
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // Stagger the animations
+  &:nth-child(1) { transition-delay: 0s; }
+  &:nth-child(2) { transition-delay: 0.15s; }
+  &:nth-child(3) { transition-delay: 0.3s; }
+}
+
 // Responsive
 @media only screen and (max-width: 768px) {
   .card-container {
@@ -176,5 +329,37 @@ a {
 
   .section-heading {
     font-size: 1.5rem;
+  }
+
+  // Timeline mobile: single column, line on left
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding: 0 1rem 2rem 3.5rem;
+    text-align: left !important;
+
+    .timeline-card {
+      flex-direction: row !important;
+    }
+
+    .timeline-logo {
+      margin-right: 1rem !important;
+      margin-left: 0 !important;
+    }
+
+    .timeline-info p,
+    .timeline-info h3 {
+      text-align: left !important;
+    }
+
+    .timeline-dot {
+      left: 12px !important;
+      right: auto !important;
+    }
   }
 }
