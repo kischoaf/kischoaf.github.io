@@ -1,10 +1,12 @@
 - role: Associate Network Engineer
   company: AHEAD
+  logo: ahead.jpg
   dates: Dec 2022 - Present
   desc: Lead network infrastructure modernization for multi-hospital healthcare system, directing 75+ switch migrations across 10+ locations on Cisco Catalyst and Nexus platforms with zero unplanned downtime. Built Python automation toolkit (Netmiko, CLI parsing) that cut post-migration validation by 3+ hours per cutover.
 
 - role: Desktop Support Engineer
   company: BrainSurf Informatics Inc
+  logo: Brainsurf.png
   dates: Jun 2022 - Dec 2022
   desc: Provided desktop and systems support for 45+ clients in a fast-paced MSP environment, managing Windows/Mac endpoints, Active Directory, Exchange Server, and O365 administration.
 
