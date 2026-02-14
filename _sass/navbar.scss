@@ -1,37 +1,89 @@
 .nav-bar {
-    width: 100%;
-    display: inline-block;
-    background-color: #1C539F;
-    font-family: "Poppins", serif;
-    font-weight: 700 !important;
-    padding-top: 10px;
+  width: 100%;
+  background-color: $color-primary;
+  font-family: $font-family;
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.nav-content .logo-touch-target {
-    display: inline-flex;
-    height: 60%;
-    width: 350px;
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.nav-content .nav-logo {
-    height: 60px;
-    margin: auto;
+.nav-brand {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+
+  &:hover {
+    color: #FFFFFF;
+  }
 }
 
-.nav-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+
+  a {
+    color: $color-footer-text;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color $transition-speed ease;
+    padding: 0.25rem 0;
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
 }
 
-.nav-logo img {
-    width: 200px;
+// Mobile hamburger
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.nav-content nav {
+@media only screen and (max-width: 768px) {
+  .nav-toggle {
     display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    text-align: right;
-    padding-top: 0px;
-    padding-right: 0px;
+    gap: 0;
+    padding-top: 1rem;
+
+    &.active {
+      display: flex;
+    }
+
+    a {
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .nav-content {
+    flex-wrap: wrap;
+  }
 }

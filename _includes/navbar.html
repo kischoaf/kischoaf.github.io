@@ -1,10 +1,13 @@
-<header class="nav-bar" style="background-color: #2a9d8f;">
+<header class="nav-bar">
     <div class="nav-content">
-        <a href="{{ '/' | relative_url }}">
-            <div class="nav-logo">
-                <img src="./assets/img/linux.png" style="width: fit-content; height: fit-content;" />
-            </div>
-        </a>
-        
+        <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            {% for link in site.nav_links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 </header>

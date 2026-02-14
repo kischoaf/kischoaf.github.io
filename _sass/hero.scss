@@ -1,0 +1,99 @@
+.hero {
+  background-color: $color-bg-white;
+  padding: 6rem 1.5rem 5rem;
+  text-align: center;
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 4px solid $color-border;
+    box-shadow: 0 2px 8px $color-shadow;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $color-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: $color-accent;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .hero-bio {
+    font-size: 1.05rem;
+    color: $color-text;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all $transition-speed ease;
+    }
+
+    .btn-primary-custom {
+      background-color: $color-accent;
+      color: #FFFFFF;
+
+      &:hover {
+        background-color: $color-accent-hover;
+        color: #FFFFFF;
+      }
+    }
+
+    .btn-outline-custom {
+      border: 1.5px solid $color-border;
+      color: $color-text;
+
+      &:hover {
+        border-color: $color-accent;
+        color: $color-accent;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    padding: 4rem 1rem 3rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .hero-photo {
+      width: 120px;
+      height: 120px;
+    }
+
+    .hero-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

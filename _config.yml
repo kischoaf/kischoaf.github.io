@@ -1,13 +1,31 @@
 title: "Kieran Schoaf"
 email: kischoaf@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  This is my portfolio website!
-baseurl: "/" 
-url: "https://kischoaf.github.io/" 
+description: >-
+  Network Engineer & IT Professional with a BS in Network Engineering from DePaul University.
+baseurl: "/"
+url: "https://kischoaf.github.io/"
 twitter_username: kischoaf
-github_username:  kischoaf
+github_username: kischoaf
+linkedin_username: ""
+
+bio: >-
+  Network Engineer and IT professional with hands-on experience in
+  network infrastructure, server administration, and system optimization.
+  Passionate about building reliable systems and solving complex technical challenges.
+
+nav_links:
+  - title: About
+    url: "#about"
+  - title: Projects
+    url: "#projects"
+  - title: Experience
+    url: "#experience"
+  - title: Education
+    url: "#education"
+  - title: Contact
+    url: "#contact"
 
 sass:
   sass_dir: _sass
 
-icon: /assets/img/icon.jpg
+icon: /assets/img/favicon.ico

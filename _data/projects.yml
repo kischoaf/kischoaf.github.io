@@ -1,10 +1,11 @@
 - title: Hardware Build
-  event: Building a Custom Computer 
-  date: Summer of 2020
+  event: Custom Computer Build
+  date: Summer 2020
   page-name: project
+  desc: Designed and assembled a custom PC build optimized for performance.
 
-- title: NextCloud and Swag Instance in Docker Container
-  event: Server Work
+- title: NextCloud & Swag Instance
+  event: Docker Server Deployment
   date: Summer 2021
   page-name: next
-  
+  desc: Deployed a self-hosted NextCloud instance with Swag reverse proxy in Docker.

@@ -1,31 +1,26 @@
 p, h1, h2, h3, h4, h5, h6, button {
-    font-family: "Open Sans", serif;
-}
-
-h2 {
-    font-size: large;
+    font-family: $font-family;
 }
 
 body {
-    background-color: #2a9d8f !important;
+    background-color: $color-bg !important;
     background-size: cover;
-    width: auto!important; 
-    overflow-x: hidden!important;
-    font-family: "Open Sans", serif;
+    width: auto !important;
+    overflow-x: hidden !important;
+    font-family: $font-family;
 }
 
 .banner {
     padding: 20px 0px 50px 0px;
     height: 150px;
-    background-color: #264653;
+    background-color: $color-primary;
 }
 
 .banner .logo {
-    max-width:180px;
-    max-height:60px;
+    max-width: 180px;
+    max-height: 60px;
     width: auto;
     height: auto;
-    
 }
 
 .banner .title {
@@ -38,80 +33,78 @@ body {
     text-align: left;
 }
 
-
 .page h1 {
     text-align: left !important;
     font-weight: 800 !important;
-    color: black;
+    color: $color-primary;
     margin-bottom: 0.7em;
 }
 
 .page h2 {
     text-align: left !important;
     font-weight: 800 !important;
-    color: white;
+    color: $color-primary-light;
     margin-bottom: 0.5em;
 }
 
 .page h3 {
     font-weight: 600 !important;
     text-align: left !important;
-    color: black;
+    color: $color-primary;
     font-size: 1.3rem;
 }
 
 .page h4 {
     font-weight: 600 !important;
     text-align: center !important;
-    color: black;
+    color: $color-primary;
 }
 
 .page p {
-    color: black;
+    color: $color-text;
     font-weight: 500;
 }
 
 .page td {
-    color: black;
+    color: $color-text;
 }
 
 .page th {
-    color: black;
+    color: $color-text;
 }
 
 .page li {
-    color: black;
+    color: $color-text;
 }
 
 .page a {
-    color: #0f90fe;
+    color: $color-accent;
 }
 
 .page a:hover {
-    color: #0f90fe;
+    color: $color-accent-hover;
 }
 
 .page code {
-    color: #17a2b8;
+    color: $color-accent;
 }
 
 hr {
-    background-color: black;
+    background-color: $color-border;
     padding: 1px;
     margin-top: 1em !important;
     margin-bottom: 1em !important;
 }
 
 @media screen and (max-width: 768px) {
-    
     .banner {
         padding: 20px 0px 20px 0px;
         height: 110px;
     }
 
     .banner .logo {
-        max-width:150px;
-        max-height:60px;
+        max-width: 150px;
+        max-height: 60px;
         width: auto;
         height: auto;
     }
@@ -128,9 +121,8 @@ hr {
 
     .page h2 {
         font-size: 1.2rem !important;
-
     }
-    
+
     .page h4 {
         font-size: 0.8rem !important;
     }

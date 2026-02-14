@@ -1,0 +1,21 @@
+<section id="about" class="hero">
+    <div class="hero-content">
+        <img src="/assets/img/logo.jpg" alt="Photo of {{ site.title }}" class="hero-photo" loading="lazy">
+        <h1>{{ site.title }}</h1>
+        <p class="hero-tagline">Network Engineer & IT Professional</p>
+        <p class="hero-bio">{{ site.bio }}</p>
+        <div class="hero-links">
+            <a href="https://github.com/{{ site.github_username }}" class="btn-primary-custom" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            {% if site.linkedin_username and site.linkedin_username != "" %}
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="btn-outline-custom" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            {% endif %}
+            <a href="mailto:{{ site.email }}" class="btn-outline-custom">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+</section>

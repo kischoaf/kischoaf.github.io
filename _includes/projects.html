@@ -1,24 +1,25 @@
-<h2>Projects</h2>
-<div class="card-container">
-    {% for item in site.data.projects %}
-    {% if item.page-name %}
-    <a href="/projects/{{ item.page-name }}">
-    {% else %}
-    <a>
-    {% endif %}
-    <style>
-      .card:hover{
-        background-color: #e76f51;
-      }
-    </style>
-      <div class="card">
-        <div class="info">
-          <p class="title">{{ item.title }}</p>
-          <p class="location">{{ item.event }}</p>
-          <p class="dates">{{ item.date }}</p>
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-heading">Projects</h2>
+        <div class="card-container">
+            {% for item in site.data.projects %}
+            {% if item.page-name %}
+            <a href="/projects/{{ item.page-name }}" class="card-link">
+            {% else %}
+            <a class="card-link">
+            {% endif %}
+                <div class="card">
+                    <div class="info">
+                        <p class="title">{{ item.title }}</p>
+                        <p class="location">{{ item.event }}</p>
+                        <p class="dates">{{ item.date }}</p>
+                        {% if item.desc %}
+                        <p class="desc">{{ item.desc }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
         </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-  
+    </div>
+</section>
