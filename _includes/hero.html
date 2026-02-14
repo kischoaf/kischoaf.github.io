@@ -19,3 +19,22 @@
         </div>
     </div>
 </section>
+
+<script>
+window.addEventListener('load', function() {
+    var elements = [
+        { el: document.querySelector('.hero-photo'), delay: 100 },
+        { el: document.querySelector('.hero h1'), delay: 300 },
+        { el: document.querySelector('.hero-tagline'), delay: 500 },
+        { el: document.querySelector('.hero-bio'), delay: 700 },
+        { el: document.querySelector('.hero-links'), delay: 900 }
+    ];
+    elements.forEach(function(item) {
+        if (item.el) {
+            setTimeout(function() {
+                item.el.classList.add('animate');
+            }, item.delay);
+        }
+    });
+});
+</script>
