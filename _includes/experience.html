@@ -3,7 +3,7 @@
         <h2 class="section-heading">Work Experience</h2>
         <div class="card-container">
             {% for item in site.data.experience %}
-            <div class="card fade-in">
+            <div class="card slide-card">
                 {% if item.logo %}
                 <div class="icon">
                     <img src="/assets/img/experience/{{ item.logo }}" alt="{{ item.company }} logo" loading="lazy">
@@ -22,22 +22,29 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Wait two frames so the browser paints opacity:0 first
-    requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.fade-in').forEach(function(el) {
-                observer.observe(el);
-            });
-        });
+(function() {
+    var cards = document.querySelectorAll('.slide-card');
+    cards.forEach(function(card, i) {
+        var fromLeft = (i % 2 === 0);
+        card.style.opacity = '0';
+        card.style.transform = fromLeft ? 'translateX(-60px)' : 'translateX(60px)';
     });
-});
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var card = entry.target;
+                var delay = Array.prototype.indexOf.call(cards, card) * 200;
+                setTimeout(function() {
+                    card.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateX(0)';
+                }, delay);
+                observer.unobserve(card);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(function(card) { observer.observe(card); });
+})();
 </script>
