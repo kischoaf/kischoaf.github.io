@@ -1,11 +1,17 @@
-- title: Hardware Build
-  event: Custom Computer Build
-  date: Summer 2020
-  page-name: project
-  desc: Designed and assembled a custom PC build optimized for performance.
+- title: Project 1 Title
+  category: Networking / Automation / Homelab
+  date: Month Year
+  page-name: project-1
+  desc: Brief one-liner about what this project is.
 
-- title: NextCloud & Swag Instance
-  event: Docker Server Deployment
-  date: Summer 2021
-  page-name: next
-  desc: Deployed a self-hosted NextCloud instance with Swag reverse proxy in Docker.
+- title: Project 2 Title
+  category: Networking / Automation / Homelab
+  date: Month Year
+  page-name: project-2
+  desc: Brief one-liner about what this project is.
+
+- title: Project 3 Title
+  category: Networking / Automation / Homelab
+  date: Month Year
+  page-name: project-3
+  desc: Brief one-liner about what this project is.
