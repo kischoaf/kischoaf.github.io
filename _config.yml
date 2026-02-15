@@ -23,8 +23,6 @@ nav_links:
     url: "#experience"
   - title: Education
     url: "#education"
-  - title: Resume
-    url: "/assets/docs/Resume.pdf"
   - title: Contact
     url: "#contact"
 
