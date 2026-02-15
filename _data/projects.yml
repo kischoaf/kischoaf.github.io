@@ -2,16 +2,19 @@
   category: Networking / Automation / Homelab
   date: Month Year
   page-name: project-1
+  thumbnail: placeholder.jpg
   desc: Brief one-liner about what this project is.
 
 - title: Project 2 Title
   category: Networking / Automation / Homelab
   date: Month Year
   page-name: project-2
+  thumbnail: placeholder.jpg
   desc: Brief one-liner about what this project is.
 
 - title: Project 3 Title
   category: Networking / Automation / Homelab
   date: Month Year
   page-name: project-3
+  thumbnail: placeholder.jpg
   desc: Brief one-liner about what this project is.
