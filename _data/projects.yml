@@ -1,16 +1,16 @@
 - title: Immich On Unraid
   category: Homelab
-  date: Month Year
+  date: 2025 - Present
   page-name: project-1
   thumbnail: immich_logo.svg
-  desc: Brief one-liner about what this project is.
+  desc: Built my own Google Photos replacement using Immich and Unraid to keep family photos private and under my control.
 
-- title: Project 2 Title
-  category: Networking / Automation / Homelab
-  date: Month Year
+- title: Network Automation Toolkit
+  category: Networking 
+  date: 2025 - Present
   page-name: project-2
-  thumbnail: placeholder.jpg
-  desc: Brief one-liner about what this project is.
+  thumbnail: netmiko_logo.jpg
+  desc: Python automation suite leveraging Netmiko and CLI parsing to streamline network device provisioning, validation, and change management.
 
 - title: Project 3 Title
   category: Networking / Automation / Homelab
