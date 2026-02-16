@@ -12,9 +12,9 @@
   thumbnail: netmiko_logo.jpg
   desc: Python automation suite leveraging Netmiko and CLI parsing to streamline network device provisioning, validation, and change management.
 
-- title: Project 3 Title
-  category: Networking / Automation / Homelab
-  date: Month Year
+- title: AdGuard Home DNS Infrastructure
+  category: Networking / Security / Homelab
+  date: 2023 - Present
   page-name: project-3
-  thumbnail: placeholder.jpg
-  desc: Brief one-liner about what this project is.
+  thumbnail: adguard_logo.jpg
+  desc: Network-wide DNS filtering and ad blocking providing enhanced security and privacy across all devices on the home network.
