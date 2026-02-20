@@ -49,18 +49,24 @@ body {
   font-weight: 700;
   color: $color-primary;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.75rem;
   position: relative;
 
   &::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 3px;
-    background-color: $color-accent;
+    background: linear-gradient(90deg, $color-accent 0%, rgba(37, 99, 235, 0) 100%);
     margin: 0.75rem auto 0;
     border-radius: 2px;
   }
+}
+
+// Sections without a subtitle need more space below the heading
+#experience .section-heading,
+#education .section-heading {
+  margin-bottom: 2rem;
 }
 
 // Section wrapper
@@ -259,7 +265,7 @@ a.btn-outline-custom {
   text-align: center;
   color: $color-text-muted;
   font-size: 1rem;
-  margin-top: -1.5rem;
+  margin-top: 0;
   margin-bottom: 2.5rem;
 }
 
@@ -306,14 +312,17 @@ a.btn-outline-custom {
 .project-thumbnail {
   position: relative;
   width: 100%;
-  height: 200px;
+  padding-top: 56.25%; // 16:9 ratio — scales naturally with card width
   overflow: hidden;
   background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
 
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.4s ease;
   }
 }

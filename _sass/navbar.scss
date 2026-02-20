@@ -12,7 +12,7 @@
 .nav-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -96,7 +96,8 @@
     }
 
     a {
-      padding: 0.75rem 0;
+      display: block;
+      padding: 0.75rem 1rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
 
       &::after {
