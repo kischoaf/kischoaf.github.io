@@ -138,31 +138,37 @@ a.btn-outline-custom {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.25rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all $transition-speed ease;
   text-decoration: none;
+  letter-spacing: 0.01em;
 }
 
 a.btn-primary-custom {
   background-color: $color-accent;
   color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
 
   &:hover {
     background-color: $color-accent-hover;
     color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+    transform: translateY(-1px);
   }
 }
 
 a.btn-outline-custom {
-  border: 1.5px solid $color-border;
-  color: $color-text;
+  border: 1.5px solid $color-primary;
+  color: $color-primary;
+  background-color: transparent;
 
   &:hover {
-    border-color: $color-accent;
-    color: $color-accent;
+    background-color: $color-primary;
+    color: #FFFFFF;
+    transform: translateY(-1px);
   }
 }
 
@@ -204,6 +210,32 @@ a.btn-outline-custom {
     color: $color-text;
     margin-top: 0.5rem;
     line-height: 1.5;
+  }
+
+  .desc-highlights {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      font-size: 0.875rem;
+      color: $color-text;
+      line-height: 1.5;
+      padding-left: 1rem;
+      margin-bottom: 0.3rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: $color-accent;
+      }
+    }
   }
 }
 
@@ -319,6 +351,15 @@ a.btn-outline-custom {
 
 .project-info {
   padding: 1.25rem 1.5rem;
+
+  .project-category {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-accent;
+    margin: 0 0 0.4rem 0;
+  }
 
   .project-title {
     font-size: 1.15rem;

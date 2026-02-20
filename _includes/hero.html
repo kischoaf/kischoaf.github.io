@@ -2,7 +2,14 @@
     <div class="hero-content">
         <img src="/assets/img/logo.jpg" alt="Photo of {{ site.title }}" class="hero-photo" loading="lazy">
         <h1>{{ site.title }}</h1>
-        <p class="hero-tagline">Network Engineer | Cisco Catalyst/Nexus | Python Automation | Healthcare Infrastructure | CCNA</p>
+        <p class="hero-role">Network Engineer</p>
+        <div class="hero-badges">
+            <span class="badge"><i class="fas fa-network-wired"></i> Cisco Catalyst &amp; Nexus</span>
+            <span class="badge"><i class="fab fa-python"></i> Python Automation</span>
+            <span class="badge"><i class="fas fa-hospital"></i> Healthcare Infrastructure</span>
+            <span class="badge"><i class="fas fa-certificate"></i> CCNA</span>
+            <span class="badge"><i class="fas fa-certificate"></i> Network+</span>
+        </div>
         <p class="hero-bio">{{ site.bio }}</p>
         <div class="hero-links">
             <a href="https://github.com/{{ site.github_username }}" class="btn-primary-custom" target="_blank" rel="noopener">
@@ -25,18 +32,17 @@
     var items = [
         { sel: '.hero-photo', from: 'opacity:0;transform:scale(0.5)', to: 'opacity:1;transform:scale(1)', dur: '0.8s', delay: 300 },
         { sel: '.hero h1', from: 'opacity:0;transform:translateX(-60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 600 },
-        { sel: '.hero-tagline', from: 'opacity:0;transform:translateX(60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 900 },
+        { sel: '.hero-role', from: 'opacity:0;transform:translateX(60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 800 },
+        { sel: '.hero-badges', from: 'opacity:0;transform:translateY(20px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 1000 },
         { sel: '.hero-bio', from: 'opacity:0;transform:translateY(40px)', to: 'opacity:1;transform:translateY(0)', dur: '0.7s', delay: 1200 },
         { sel: '.hero-links', from: 'opacity:0;transform:translateY(40px)', to: 'opacity:1;transform:translateY(0)', dur: '0.7s', delay: 1500 }
     ];
 
-    // Set initial hidden state immediately
     items.forEach(function(item) {
         var el = document.querySelector(item.sel);
         if (el) el.style.cssText += item.from;
     });
 
-    // Animate after page loads
     window.addEventListener('load', function() {
         items.forEach(function(item) {
             var el = document.querySelector(item.sel);

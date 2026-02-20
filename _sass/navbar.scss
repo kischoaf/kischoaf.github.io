@@ -44,9 +44,27 @@
     font-weight: 500;
     transition: color $transition-speed ease;
     padding: 0.25rem 0;
+    position: relative;
 
-    &:hover {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-accent;
+      transition: width 0.25s ease;
+      border-radius: 1px;
+    }
+
+    &:hover,
+    &.active {
       color: #FFFFFF;
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
@@ -80,6 +98,10 @@
     a {
       padding: 0.75rem 0;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      &::after {
+        display: none;
+      }
     }
   }
 

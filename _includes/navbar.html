@@ -1,13 +1,45 @@
 <header class="nav-bar">
     <div class="nav-content">
         <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
             <i class="fas fa-bars"></i>
         </button>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             {% for link in site.nav_links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            <li><a href="{{ link.url }}" data-section="{{ link.url | remove: '#' }}">{{ link.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
 </header>
+
+<script>
+(function() {
+    var toggle = document.getElementById('nav-toggle');
+    var links  = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', function() {
+        var isOpen = links.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Scroll-spy: highlight the nav link whose section is currently in view
+    var navLinks = document.querySelectorAll('.nav-links a[data-section]');
+    var sections = Array.from(navLinks).map(function(a) {
+        return document.getElementById(a.dataset.section);
+    }).filter(Boolean);
+
+    function onScroll() {
+        var scrollY = window.scrollY + 100;
+        var current = sections[0];
+        sections.forEach(function(sec) {
+            if (sec.offsetTop <= scrollY) current = sec;
+        });
+        navLinks.forEach(function(a) {
+            a.classList.toggle('active', a.dataset.section === current.id);
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>

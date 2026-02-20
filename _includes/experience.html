@@ -21,7 +21,16 @@
                     <p class="title">{{ item.role }}</p>
                     <p class="location">{{ item.company }}</p>
                     <p class="dates">{{ item.dates }}</p>
+                    {% if item.desc %}
                     <p class="desc">{{ item.desc }}</p>
+                    {% endif %}
+                    {% if item.highlights %}
+                    <ul class="desc-highlights">
+                        {% for point in item.highlights %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

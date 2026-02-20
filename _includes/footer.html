@@ -1,23 +1,27 @@
 <footer id="contact" class="site-footer">
     <div class="footer-content">
+        <h2 class="footer-heading">Get In Touch</h2>
+        <p class="footer-tagline">
+            Open to senior network engineering roles, consulting, and interesting infrastructure conversations.
+        </p>
+        <a href="mailto:{{ site.email }}" class="footer-cta">
+            <i class="fas fa-envelope"></i> {{ site.email }}
+        </a>
         <div class="footer-social">
             <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
-            {% if site.twitter_username and site.twitter_username != "" %}
-            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            {% endif %}
             {% if site.linkedin_username and site.linkedin_username != "" %}
             <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
             {% endif %}
+            {% if site.twitter_username and site.twitter_username != "" %}
+            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" aria-label="Twitter/X">
+                <i class="fab fa-twitter"></i>
+            </a>
+            {% endif %}
         </div>
-        <p class="footer-email">
-            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        </p>
         <p class="footer-text">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
     </div>
 </footer>

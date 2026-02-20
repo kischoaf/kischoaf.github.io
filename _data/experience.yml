@@ -2,17 +2,39 @@
   company: AHEAD
   logo: ahead.jpg
   dates: Dec 2022 - Present
-  desc: I lead network infrastructure modernization for a multi-hospital healthcare system on a 5-year engagement, directing 75+ switch migrations across 10+ hospital locations. Working with Cisco Catalyst and Nexus platforms, I architect and execute Layer 2/3 cutovers while coordinating onsite engineering teams through live implementation in mission-critical environments. I've maintained zero unplanned downtime across all deployments by owning the full cutover lifecycle—from pre-staging and validation through implementation and post-migration stabilization. To accelerate deployments and eliminate manual errors, I built a Python automation toolkit using Netmiko and CLI parsing that cuts post-migration validation time by 3+ hours per cutover. I've also standardized deployment methodologies across the distributed hospital network by creating reusable MOPs, validation runbooks, and port-mapping templates that reduce project risk and enable consistent implementations.
+  desc: >-
+    Lead network infrastructure modernization for a multi-hospital healthcare system,
+    directing switch migrations across 10+ hospital locations using Cisco Catalyst and
+    Nexus platforms. Full lifecycle ownership from pre-staging through post-migration
+    stabilization, coordinating onsite engineering teams in mission-critical environments.
+  highlights:
+    - "75+ switch migrations across 10+ hospitals with zero unplanned downtime"
+    - "Built Python automation toolkit (Netmiko) cutting post-migration validation time by 3+ hours per cutover"
+    - "Authored reusable MOPs, validation runbooks, and port-mapping templates adopted across the engagement"
+    - "Architected and executed Layer 2/3 cutovers on live Cisco Catalyst and Nexus infrastructure"
 
 - role: Desktop Support Engineer
   company: BrainSurf Informatics Inc
   logo: Brainsurf.png
   dates: Jun 2022 - Dec 2022
-  desc: Fresh out of college with a Network Engineering degree, I took this role to get my foot in the door while hunting for the right network engineering opportunity. I provided desktop and systems support for 45+ clients in a fast-paced MSP environment, managing everything from Windows/MacOS endpoints to Active Directory, Exchange Server, and O365 administration. I led employee onboarding workflows including account provisioning, security access configuration, and hardware deployments across diverse client environments. I also supported email security operations by responding to phishing incidents and managing spam gateway systems. While the role wasn't networking-focused, it taught me how to work under pressure, manage multiple clients simultaneously, and communicate technical issues clearly to non-technical stakeholders—skills that translate directly to coordinating network cutovers with hospital staff today.
+  desc: >-
+    Provided desktop and systems support for 45+ clients in a fast-paced MSP environment
+    while targeting a network engineering role. Managed Windows/MacOS endpoints, Active
+    Directory, Exchange Server, and O365 administration.
+  highlights:
+    - "Supported 45+ clients across Windows/macOS, Active Directory, Exchange, and O365"
+    - "Led employee onboarding workflows: account provisioning, security access, hardware deployments"
+    - "Responded to phishing incidents and managed spam gateway operations"
 
 - role: Information Technology Support Technician
   company: CMIT Solutions, Inc.
   dates: Nov 2020 - Jun 2022
   logo: cmit.jpg
-  desc: During my time at CMIT Solutions, I worked part-time as the primary technical resource for a 2-person MSP supporting small business clients. As the only tech on staff, I handled everything—hardware troubleshooting, software deployments, basic network infrastructure, and client communications. I deployed and configured endpoint security solutions like SentinelOne, managed network equipment procurement through Dell, and handled router/switch installations and wireless access point deployments for small office environments. I also provided monthly executive briefings to business owners, translating technical concepts into business value and budget recommendations. While the networks were small (no VLANs, mostly unmanaged switches), this role taught me how to be the go-to person for all things IT, manage client expectations, and troubleshoot problems independently—all while balancing a full course load in Network Engineering.
-
+  desc: >-
+    Primary technical resource for a 2-person MSP supporting small business clients while
+    completing a full course load in Network Engineering. Handled hardware troubleshooting,
+    software deployments, network infrastructure, and client communications end-to-end.
+  highlights:
+    - "Deployed and configured SentinelOne endpoint security across client environments"
+    - "Handled router/switch installations and wireless access point deployments for small office networks"
+    - "Delivered monthly executive briefings translating technical recommendations into business value"
