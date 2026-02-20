@@ -4,6 +4,7 @@
   page-name: project-1
   thumbnail: immich_logo.svg
   desc: Built my own Google Photos replacement using Immich and Unraid to keep family photos private and under my control.
+  tags: [Unraid, Docker, Cloudflare Tunnel, Self-Hosted]
 
 - title: Network Automation Toolkit
   category: Networking
@@ -11,6 +12,7 @@
   page-name: project-2
   thumbnail: netmiko_logo.jpg
   desc: Python automation suite leveraging Netmiko and CLI parsing to streamline network device provisioning, validation, and change management.
+  tags: [Python, Netmiko, Cisco IOS-XE, Catalyst 9300]
 
 - title: AdGuard Home DNS Infrastructure
   category: Networking / Security / Homelab
@@ -18,3 +20,4 @@
   page-name: project-3
   thumbnail: adgaurd_logo.jpg
   desc: Network-wide DNS filtering and ad blocking providing enhanced security and privacy across all devices on the home network.
+  tags: [Raspberry Pi, DNS, Ubiquiti, Network Security]

@@ -4,9 +4,25 @@
         <p class="footer-tagline">
             Open to senior network engineering roles, consulting, and interesting infrastructure conversations.
         </p>
-        <a href="mailto:{{ site.email }}" class="footer-cta">
-            <i class="fas fa-envelope"></i> {{ site.email }}
-        </a>
+
+        <div class="footer-terminal" aria-label="Contact terminal block">
+            <div class="ft-line">
+                <span class="ft-prompt">&gt;</span>
+                <span class="ft-cmd">ping {{ site.email }}</span>
+            </div>
+            <div class="ft-line ft-output">
+                PING {{ site.email }} &hellip; Host is <span class="ft-up">UP</span>
+            </div>
+            <div class="ft-line">
+                <span class="ft-prompt">&gt;</span>
+                <span class="ft-cmd">traceroute to opportunity</span>
+            </div>
+            <div class="ft-line ft-output">
+                Hop 1: <a href="mailto:{{ site.email }}" class="ft-link">{{ site.email }}</a>
+                <span class="ft-open">&nbsp;[OPEN]</span>
+            </div>
+        </div>
+
         <div class="footer-social">
             <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">
                 <i class="fab fa-github"></i>

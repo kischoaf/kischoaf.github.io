@@ -25,25 +25,71 @@
     max-width: 480px;
   }
 
-  .footer-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
-    background-color: $color-accent;
-    color: #FFFFFF;
+  // Terminal-style contact block
+  .footer-terminal {
+    display: inline-block;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
+    padding: 1.125rem 1.5rem;
     margin-bottom: 2.5rem;
-    transition: background-color $transition-speed ease, transform $transition-speed ease;
-    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.35);
+    font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    min-width: 360px;
+    max-width: 100%;
 
-    &:hover {
-      background-color: $color-accent-hover;
+    // Each line of the terminal
+    .ft-line {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    // The ">" prompt character
+    .ft-prompt {
+      color: $color-accent;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      user-select: none;
+    }
+
+    // The command text (after the prompt)
+    .ft-cmd {
       color: #FFFFFF;
-      transform: translateY(-1px);
+    }
+
+    // Output lines (indented, muted)
+    .ft-output {
+      color: rgba(203, 213, 225, 0.65);
+      padding-left: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    // "UP" status highlight
+    .ft-up {
+      color: #34D399; // emerald green — status "up"
+      font-weight: 600;
+    }
+
+    // The clickable email in the last output line
+    .ft-link {
+      color: $color-footer-text;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color $transition-speed ease;
+
+      &:hover {
+        color: #FFFFFF;
+      }
+    }
+
+    // "[OPEN]" indicator
+    .ft-open {
+      color: #34D399;
+      font-weight: 600;
     }
   }
 
@@ -71,5 +117,14 @@
     margin: 0;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .site-footer .footer-terminal {
+    min-width: 0;
+    width: 100%;
+    font-size: 0.78rem;
+    padding: 1rem 1rem;
   }
 }

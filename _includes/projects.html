@@ -21,6 +21,13 @@
                     {% if item.desc %}
                     <p class="project-desc">{{ item.desc }}</p>
                     {% endif %}
+                    {% if item.tags %}
+                    <div class="project-tags">
+                        {% for tag in item.tags %}
+                        <span class="project-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
             </a>
             {% endfor %}

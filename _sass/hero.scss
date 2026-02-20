@@ -50,6 +50,23 @@
     color: $color-accent;
     margin-bottom: 1.25rem;
     letter-spacing: 0.01em;
+    // Reserve height so the layout does not shift when the typewriter
+    // clears the text and starts typing the next phrase.
+    min-height: 1.6em;
+
+    // Blinking cursor — only visible when the typewriter JS is active
+    &.hero-role--typing::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 2px;
+      color: $color-accent;
+      animation: blink-cursor 0.75s step-end infinite;
+    }
+  }
+
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
   }
 
   .hero-badges {

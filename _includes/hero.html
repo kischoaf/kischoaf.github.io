@@ -2,7 +2,7 @@
     <div class="hero-content">
         <img src="/assets/img/logo.jpg" alt="Photo of {{ site.title }}" class="hero-photo" loading="lazy">
         <h1>{{ site.title }}</h1>
-        <p class="hero-role">Network Engineer</p>
+        <p class="hero-role" id="hero-role-text">Network Engineer</p>
         <div class="hero-badges">
             <span class="badge"><i class="fas fa-network-wired"></i> Cisco Catalyst &amp; Nexus</span>
             <span class="badge"><i class="fab fa-python"></i> Python Automation</span>
@@ -28,6 +28,7 @@
 </section>
 
 <script>
+// ── Entry animations ──────────────────────────────────────────────────────────
 (function() {
     var items = [
         { sel: '.hero-photo', from: 'opacity:0;transform:scale(0.5)', to: 'opacity:1;transform:scale(1)', dur: '0.8s', delay: 300 },
@@ -52,6 +53,76 @@
                 el.style.cssText += item.to;
             }, item.delay);
         });
+    });
+})();
+
+// ── Typewriter effect ─────────────────────────────────────────────────────────
+(function() {
+    var phrases = [
+        'Network Engineer',
+        'Infrastructure Specialist',
+        'Homelab Enthusiast'
+    ];
+
+    // Timing constants (ms)
+    var TYPE_SPEED   = 65;   // ms per character typed
+    var DELETE_SPEED = 35;   // ms per character deleted
+    var PAUSE_AFTER  = 2200; // pause before deleting
+    var PAUSE_BEFORE = 400;  // pause between delete-done and next phrase
+    // Delay before typewriter starts — must clear the entry animation
+    // (.hero-role fades in at 800ms after load over 700ms = ~1500ms total)
+    var START_DELAY  = 2600;
+
+    var el = document.getElementById('hero-role-text');
+    if (!el) return;
+
+    var phraseIndex  = 0;
+    var charIndex    = 0;
+    var isDeleting   = false;
+
+    // Add cursor class so CSS can render the blinking pipe
+    el.classList.add('hero-role--typing');
+
+    function tick() {
+        var current = phrases[phraseIndex];
+
+        if (isDeleting) {
+            // Remove one character
+            charIndex--;
+            el.textContent = current.slice(0, charIndex);
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(tick, PAUSE_BEFORE);
+            } else {
+                setTimeout(tick, DELETE_SPEED);
+            }
+        } else {
+            // Add one character
+            charIndex++;
+            el.textContent = current.slice(0, charIndex);
+
+            if (charIndex === current.length) {
+                // Finished typing — pause then start deleting
+                setTimeout(function() {
+                    isDeleting = true;
+                    tick();
+                }, PAUSE_AFTER);
+            } else {
+                setTimeout(tick, TYPE_SPEED);
+            }
+        }
+    }
+
+    // Wait for page load, then wait for entry animation to clear
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            // Clear the static text so the cursor blinks alone briefly
+            charIndex = 0;
+            el.textContent = '';
+            tick();
+        }, START_DELAY);
     });
 })();
 </script>
