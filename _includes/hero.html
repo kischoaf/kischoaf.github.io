@@ -13,6 +13,12 @@
             <span class="badge"><i class="fas fa-certificate"></i> Network+</span>
         </div>
         <p class="hero-bio">{{ site.bio }}</p>
+        {% if site.currently %}
+        <p class="hero-currently">
+            <span class="hero-currently-dot"></span>
+            {{ site.currently }}
+        </p>
+        {% endif %}
         <div class="hero-links">
             <a href="https://github.com/{{ site.github_username }}" class="btn-primary-custom" target="_blank" rel="noopener">
                 <i class="fab fa-github"></i> GitHub

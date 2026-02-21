@@ -131,6 +131,32 @@
     margin: 0 auto 2.25rem;
   }
 
+  .hero-currently {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: $color-text-muted;
+    margin: 0 auto 1.75rem;
+    font-weight: 400;
+  }
+
+  .hero-currently-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background-color: #34D399;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
+    animation: status-pulse 2.5s ease-out infinite;
+  }
+
+  @keyframes status-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+    70%  { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+  }
+
   .hero-links {
     display: flex;
     justify-content: center;

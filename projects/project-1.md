@@ -37,7 +37,7 @@ Self-hosting solves both of those, but it introduces the problem of remote acces
 
 ## Results
 
-The stack has been running since 2023 and currently manages approximately 11,000 photos and videos. It handles automatic backup from mobile devices, facial recognition, and full-text search across the library.
+The stack has been running since 2025 and currently manages approximately 11,000 photos and videos. It handles automatic backup from mobile devices, facial recognition, and full-text search across the library.
 
 At one point the application layer broke badly enough that I rebuilt it from scratch. The PostgreSQL database, stored in a Docker volume on the Unraid array, was completely unaffected. All photo metadata, albums, and user data survived. After the rebuild, Immich reattached to the existing database and the library came back exactly as it was. The only thing that was gone was the application itself, which was the part that was supposed to be replaceable.
 

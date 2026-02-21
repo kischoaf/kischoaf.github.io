@@ -1,11 +1,3 @@
-- title: Immich On Unraid
-  category: Homelab
-  date: 2025 - Present
-  page-name: project-1
-  thumbnail: immich_logo.svg
-  desc: Built my own Google Photos replacement using Immich and Unraid to keep family photos private and under my control.
-  tags: [Unraid, Docker, Cloudflare Tunnel, Self-Hosted]
-
 - title: Network Automation Toolkit
   category: Networking
   date: 2025 - Present
@@ -21,3 +13,11 @@
   thumbnail: adgaurd_logo.jpg
   desc: Network-wide DNS filtering and ad blocking providing enhanced security and privacy across all devices on the home network.
   tags: [Raspberry Pi, DNS, Ubiquiti, Network Security]
+
+- title: Immich On Unraid
+  category: Homelab
+  date: 2025 - Present
+  page-name: project-1
+  thumbnail: immich_logo.svg
+  desc: Built my own Google Photos replacement using Immich and Unraid to keep family photos private and under my control.
+  tags: [Unraid, Docker, Cloudflare Tunnel, Self-Hosted]
