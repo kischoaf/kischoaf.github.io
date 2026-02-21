@@ -23,16 +23,49 @@
     position: relative;
   }
 
+  .hero-photo-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.75rem;
+
+    // Pulse ring — radiates outward from the accent ring, then fades
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 154px; // photo(140) + white border(3) + accent ring(4) * 2 sides
+      height: 154px;
+      border-radius: 50%;
+      border: 2px solid $color-accent;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1);
+      animation: pulse-ring 3s ease-out 1.5s infinite;
+      pointer-events: none;
+    }
+  }
+
   .hero-photo {
     width: 140px;
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1.75rem;
+    display: block;
     border: 3px solid #FFFFFF;
     box-shadow:
       0 0 0 4px $color-accent,
       0 8px 32px rgba(37, 99, 235, 0.18);
+  }
+
+  @keyframes pulse-ring {
+    0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.55; }
+    100% { transform: translate(-50%, -50%) scale(1.45); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photo-wrapper::after {
+      animation: none;
+    }
   }
 
   h1 {

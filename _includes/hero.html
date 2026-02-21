@@ -1,6 +1,8 @@
 <section id="about" class="hero">
     <div class="hero-content">
-        <img src="/assets/img/logo.jpg" alt="Photo of {{ site.title }}" class="hero-photo" loading="lazy">
+        <div class="hero-photo-wrapper">
+            <img src="/assets/img/logo.jpg" alt="Photo of {{ site.title }}" class="hero-photo" loading="lazy">
+        </div>
         <h1>{{ site.title }}</h1>
         <p class="hero-role" id="hero-role-text">Network Engineer</p>
         <div class="hero-badges">
@@ -31,7 +33,7 @@
 // ── Entry animations ──────────────────────────────────────────────────────────
 (function() {
     var items = [
-        { sel: '.hero-photo', from: 'opacity:0;transform:scale(0.5)', to: 'opacity:1;transform:scale(1)', dur: '0.8s', delay: 300 },
+        { sel: '.hero-photo-wrapper', from: 'opacity:0;transform:scale(0.5)', to: 'opacity:1;transform:scale(1)', dur: '0.8s', delay: 300 },
         { sel: '.hero h1', from: 'opacity:0;transform:translateX(-60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 600 },
         { sel: '.hero-role', from: 'opacity:0;transform:translateX(60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 800 },
         { sel: '.hero-badges', from: 'opacity:0;transform:translateY(20px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 1000 },
