@@ -1,12 +1,12 @@
 <svg id="packet-trail" aria-hidden="true" focusable="false">
     <!-- The vertical trace line -->
     <line id="trail-line" x1="16" y1="0" x2="16" y2="0"/>
-    <!-- Hop nodes that appear as the line draws past them -->
-    <circle class="trail-hop" id="hop-0" cx="16" cy="0"   r="5" opacity="0"/>
-    <circle class="trail-hop" id="hop-1" cx="16" cy="0"   r="5" opacity="0"/>
-    <circle class="trail-hop" id="hop-2" cx="16" cy="0"   r="5" opacity="0"/>
-    <circle class="trail-hop" id="hop-3" cx="16" cy="0"   r="5" opacity="0"/>
-    <circle class="trail-hop" id="hop-4" cx="16" cy="0"   r="5" opacity="0"/>
+    <!-- Hop nodes — router icons that appear as the line draws past them -->
+    <image class="trail-hop" id="hop-0" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-1" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-2" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-3" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-4" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
     <!-- Traveling packets -->
     <circle class="trail-pkt" id="pkt-0" cx="16" cy="-10" r="4"/>
     <circle class="trail-pkt" id="pkt-1" cx="16" cy="-10" r="4"/>
@@ -31,9 +31,6 @@
 }
 
 .trail-hop {
-    fill: none;
-    stroke: rgba(37, 99, 235, 0.75);
-    stroke-width: 2;
     transition: opacity 0.4s ease;
 }
 
@@ -67,9 +64,12 @@
     // Hop positions as fraction of viewport height (evenly spaced)
     var hopFractions = [0.18, 0.34, 0.52, 0.68, 0.84];
 
+    var hopSize = 22; // must match width/height on <image> elements
+
     function setHopPositions() {
         hops.forEach(function(hop, i) {
-            hop.setAttribute('cy', hopFractions[i] * vh);
+            // position y so icon is centered on the line
+            hop.setAttribute('y', (hopFractions[i] * vh) - hopSize / 2);
         });
     }
 
@@ -89,7 +89,7 @@
         // Draw the line
         line.setAttribute('y2', drawnH);
 
-        // Show/hide hop nodes as line draws past them
+        // Show/hide router icons as line draws past them
         hops.forEach(function(hop, i) {
             var hopY = hopFractions[i] * vh;
             hop.setAttribute('opacity', drawnH >= hopY ? 1 : 0);
