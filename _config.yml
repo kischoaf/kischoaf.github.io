@@ -21,12 +21,12 @@ bio: >-
 nav_links:
   - title: About
     url: "#about"
+  - title: Experience
+    url: "#experience"
   - title: Projects
     url: "#projects"
   - title: Skills
     url: "#skills"
-  - title: Experience
-    url: "#experience"
   - title: Education
     url: "#education"
   - title: Contact
