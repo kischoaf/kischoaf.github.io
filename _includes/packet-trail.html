@@ -2,15 +2,15 @@
     <!-- The vertical trace line -->
     <line id="trail-line" x1="16" y1="0" x2="16" y2="0"/>
     <!-- Hop nodes that appear as the line draws past them -->
-    <circle class="trail-hop" id="hop-0" cx="16" cy="0"   r="3" opacity="0"/>
-    <circle class="trail-hop" id="hop-1" cx="16" cy="0"   r="3" opacity="0"/>
-    <circle class="trail-hop" id="hop-2" cx="16" cy="0"   r="3" opacity="0"/>
-    <circle class="trail-hop" id="hop-3" cx="16" cy="0"   r="3" opacity="0"/>
-    <circle class="trail-hop" id="hop-4" cx="16" cy="0"   r="3" opacity="0"/>
+    <circle class="trail-hop" id="hop-0" cx="16" cy="0"   r="5" opacity="0"/>
+    <circle class="trail-hop" id="hop-1" cx="16" cy="0"   r="5" opacity="0"/>
+    <circle class="trail-hop" id="hop-2" cx="16" cy="0"   r="5" opacity="0"/>
+    <circle class="trail-hop" id="hop-3" cx="16" cy="0"   r="5" opacity="0"/>
+    <circle class="trail-hop" id="hop-4" cx="16" cy="0"   r="5" opacity="0"/>
     <!-- Traveling packets -->
-    <circle class="trail-pkt" id="pkt-0" cx="16" cy="-10" r="2.5"/>
-    <circle class="trail-pkt" id="pkt-1" cx="16" cy="-10" r="2.5"/>
-    <circle class="trail-pkt" id="pkt-2" cx="16" cy="-10" r="2.5"/>
+    <circle class="trail-pkt" id="pkt-0" cx="16" cy="-10" r="4"/>
+    <circle class="trail-pkt" id="pkt-1" cx="16" cy="-10" r="4"/>
+    <circle class="trail-pkt" id="pkt-2" cx="16" cy="-10" r="4"/>
 </svg>
 
 <style>
@@ -25,20 +25,20 @@
 }
 
 #trail-line {
-    stroke: rgba(37, 99, 235, 0.18);
-    stroke-width: 1.5;
+    stroke: rgba(37, 99, 235, 0.5);
+    stroke-width: 2;
     stroke-linecap: round;
 }
 
 .trail-hop {
     fill: none;
-    stroke: rgba(37, 99, 235, 0.35);
-    stroke-width: 1.5;
+    stroke: rgba(37, 99, 235, 0.75);
+    stroke-width: 2;
     transition: opacity 0.4s ease;
 }
 
 .trail-pkt {
-    fill: rgba(37, 99, 235, 0.55);
+    fill: rgba(37, 99, 235, 0.9);
 }
 
 /* Hide on smaller screens where it would overlap content */
