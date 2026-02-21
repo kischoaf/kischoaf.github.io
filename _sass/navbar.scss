@@ -1,12 +1,42 @@
+// Scroll progress bar
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: $color-accent;
+  z-index: 1001;
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
 .nav-bar {
   width: 100%;
   background-color: $color-primary;
   font-family: $font-family;
   padding: 0.75rem 0;
   position: sticky;
-  top: 0;
+  top: 2px; // sits just below the progress bar
   z-index: 1000;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// Sliding active indicator
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: $color-accent;
+  border-radius: 1px;
+  pointer-events: none;
+  transition: left 0.25s ease, width 0.25s ease;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .nav-content {
@@ -58,13 +88,17 @@
       border-radius: 1px;
     }
 
-    &:hover,
-    &.active {
+    &:hover {
       color: #FFFFFF;
 
       &::after {
         width: 100%;
       }
+    }
+
+    &.active {
+      color: #FFFFFF;
+      // active underline handled by the sliding .nav-indicator
     }
   }
 }

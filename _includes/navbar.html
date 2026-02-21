@@ -1,3 +1,5 @@
+<div id="scroll-progress"></div>
+
 <header class="nav-bar">
     <div class="nav-content">
         <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
@@ -10,36 +12,78 @@
             {% endfor %}
         </ul>
     </div>
+    <span class="nav-indicator" id="nav-indicator"></span>
 </header>
 
 <script>
 (function() {
-    var toggle = document.getElementById('nav-toggle');
-    var links  = document.getElementById('nav-links');
+    var toggle   = document.getElementById('nav-toggle');
+    var links    = document.getElementById('nav-links');
+    var progress = document.getElementById('scroll-progress');
+    var indicator = document.getElementById('nav-indicator');
 
+    // ── Mobile toggle ────────────────────────────────────────────────────────
     toggle.addEventListener('click', function() {
         var isOpen = links.classList.toggle('active');
         toggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Scroll-spy: highlight the nav link whose section is currently in view
+    // ── Scroll progress bar ──────────────────────────────────────────────────
+    function updateProgress() {
+        var scrollTop  = window.scrollY;
+        var docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progress.style.width = pct + '%';
+    }
+
+    // ── Sliding nav indicator ────────────────────────────────────────────────
     var navLinks = document.querySelectorAll('.nav-links a[data-section]');
     var sections = Array.from(navLinks).map(function(a) {
         return document.getElementById(a.dataset.section);
     }).filter(Boolean);
 
+    function moveIndicator(activeLink) {
+        if (!indicator || !activeLink) return;
+        var navBar   = document.querySelector('.nav-bar');
+        var linkRect = activeLink.getBoundingClientRect();
+        var navRect  = navBar.getBoundingClientRect();
+        indicator.style.left  = (linkRect.left - navRect.left) + 'px';
+        indicator.style.width = linkRect.width + 'px';
+    }
+
     function onScroll() {
-        var scrollY = window.scrollY + 100;
-        var current = sections[0];
+        updateProgress();
+
+        if (!sections.length) return;
+        var scrollY  = window.scrollY + 100;
+        var current  = sections[0];
         sections.forEach(function(sec) {
             if (sec.offsetTop <= scrollY) current = sec;
         });
+
+        var activeLink = null;
         navLinks.forEach(function(a) {
-            a.classList.toggle('active', a.dataset.section === current.id);
+            var isActive = a.dataset.section === current.id;
+            a.classList.toggle('active', isActive);
+            if (isActive) activeLink = a;
         });
+
+        moveIndicator(activeLink);
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+
+    // Run once on load — suppress transition for initial placement
+    window.addEventListener('load', function() {
+        if (indicator) indicator.style.transition = 'none';
+        onScroll();
+        updateProgress();
+        // Re-enable transition after first paint
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                if (indicator) indicator.style.transition = '';
+            });
+        });
+    });
 })();
 </script>
