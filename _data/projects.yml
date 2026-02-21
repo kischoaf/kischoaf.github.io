@@ -3,7 +3,10 @@
   date: 2025 - Present
   page-name: project-2
   thumbnail: netmiko_logo.jpg
-  desc: Python automation suite leveraging Netmiko and CLI parsing to streamline network device provisioning, validation, and change management.
+  desc: >-
+    Production toolkit used across 75+ Cisco Catalyst 9300 migrations in live
+    healthcare environments. Automates MAC/CDP comparison, port mapping, and
+    baseline config generation — cutting post-cutover validation by 3+ hours per site.
   tags: [Python, Netmiko, Cisco IOS-XE, Catalyst 9300]
 
 - title: AdGuard Home DNS Infrastructure
@@ -11,7 +14,10 @@
   date: 2023 - Present
   page-name: project-3
   thumbnail: adgaurd_logo.jpg
-  desc: Network-wide DNS filtering and ad blocking providing enhanced security and privacy across all devices on the home network.
+  desc: >-
+    Dedicated DNS layer on a Raspberry Pi, integrated with a Ubiquiti Dream Machine
+    to filter 19% of network traffic across all devices. Includes split-horizon
+    resolution for internal self-hosted services. Running continuously since 2023.
   tags: [Raspberry Pi, DNS, Ubiquiti, Network Security]
 
 - title: Immich On Unraid
@@ -19,5 +25,8 @@
   date: 2025 - Present
   page-name: project-1
   thumbnail: immich_logo.svg
-  desc: Built my own Google Photos replacement using Immich and Unraid to keep family photos private and under my control.
+  desc: >-
+    Self-hosted photo library managing 11,000+ files with zero open inbound ports,
+    accessed remotely via Cloudflare Tunnel. Data persistence validated under a
+    real application rebuild — the library survived intact.
   tags: [Unraid, Docker, Cloudflare Tunnel, Self-Hosted]

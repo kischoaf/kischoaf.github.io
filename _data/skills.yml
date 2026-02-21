@@ -1,0 +1,34 @@
+categories:
+  - name: Network Infrastructure
+    skills:
+      - Cisco Catalyst (9300, 3850, 2960)
+      - Cisco Nexus
+      - VLANs / STP / RSTP
+      - Layer 2/3 Switching & Routing
+      - OSPF
+      - BGP (lab / CCNP study)
+      - Ubiquiti UniFi / Dream Machine
+
+  - name: Automation & Development
+    skills:
+      - Python
+      - Netmiko
+      - openpyxl
+      - Git / GitHub
+      - Bash scripting
+
+  - name: Infrastructure & Systems
+    skills:
+      - DNS / DHCP / NTP
+      - Docker / Docker Compose
+      - Cloudflare Tunnels
+      - Linux (Debian/Ubuntu)
+      - Unraid
+      - Active Directory / O365
+
+certifications:
+  - name: CCNA
+    issuer: Cisco
+
+  - name: CompTIA Network+
+    issuer: CompTIA

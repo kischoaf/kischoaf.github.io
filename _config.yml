@@ -23,6 +23,8 @@ nav_links:
     url: "#about"
   - title: Projects
     url: "#projects"
+  - title: Skills
+    url: "#skills"
   - title: Experience
     url: "#experience"
   - title: Education

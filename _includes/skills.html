@@ -1,0 +1,30 @@
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-heading">Skills & Certifications</h2>
+        <div class="skills-body">
+            <div class="skills-grid">
+                {% for category in site.data.skills.categories %}
+                <div class="skill-group">
+                    <h3 class="skill-group-title">{{ category.name }}</h3>
+                    <ul class="skill-list">
+                        {% for skill in category.skills %}
+                        <li class="skill-item">{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+            {% if site.data.skills.certifications %}
+            <div class="cert-row">
+                {% for cert in site.data.skills.certifications %}
+                <div class="cert-card">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <span class="cert-name">{{ cert.name }}</span>
+                    <span class="cert-issuer">{{ cert.issuer }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
