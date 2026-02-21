@@ -1,0 +1,122 @@
+<svg id="packet-trail" aria-hidden="true" focusable="false">
+    <!-- The vertical trace line -->
+    <line id="trail-line" x1="16" y1="0" x2="16" y2="0"/>
+    <!-- Hop nodes that appear as the line draws past them -->
+    <circle class="trail-hop" id="hop-0" cx="16" cy="0"   r="3" opacity="0"/>
+    <circle class="trail-hop" id="hop-1" cx="16" cy="0"   r="3" opacity="0"/>
+    <circle class="trail-hop" id="hop-2" cx="16" cy="0"   r="3" opacity="0"/>
+    <circle class="trail-hop" id="hop-3" cx="16" cy="0"   r="3" opacity="0"/>
+    <circle class="trail-hop" id="hop-4" cx="16" cy="0"   r="3" opacity="0"/>
+    <!-- Traveling packets -->
+    <circle class="trail-pkt" id="pkt-0" cx="16" cy="-10" r="2.5"/>
+    <circle class="trail-pkt" id="pkt-1" cx="16" cy="-10" r="2.5"/>
+    <circle class="trail-pkt" id="pkt-2" cx="16" cy="-10" r="2.5"/>
+</svg>
+
+<style>
+#packet-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    pointer-events: none;
+    z-index: 499;
+    overflow: visible;
+}
+
+#trail-line {
+    stroke: rgba(37, 99, 235, 0.18);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+}
+
+.trail-hop {
+    fill: none;
+    stroke: rgba(37, 99, 235, 0.35);
+    stroke-width: 1.5;
+    transition: opacity 0.4s ease;
+}
+
+.trail-pkt {
+    fill: rgba(37, 99, 235, 0.55);
+}
+
+/* Hide on smaller screens where it would overlap content */
+@media (max-width: 1024px) {
+    #packet-trail { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #packet-trail { display: none; }
+}
+</style>
+
+<script>
+(function() {
+    var svg     = document.getElementById('packet-trail');
+    var line    = document.getElementById('trail-line');
+    var hops    = [0,1,2,3,4].map(function(i) { return document.getElementById('hop-' + i); });
+    var pkts    = [0,1,2].map(function(i)  { return document.getElementById('pkt-' + i);  });
+
+    // Packets travel at slightly different speeds for a realistic feel
+    var pktOffsets = [0, 0.38, 0.7];
+    var pktSpeeds  = [0.13, 0.10, 0.16]; // fraction of drawn line per second
+    var lastTime   = null;
+    var vh         = window.innerHeight;
+
+    // Hop positions as fraction of viewport height (evenly spaced)
+    var hopFractions = [0.18, 0.34, 0.52, 0.68, 0.84];
+
+    function setHopPositions() {
+        hops.forEach(function(hop, i) {
+            hop.setAttribute('cy', hopFractions[i] * vh);
+        });
+    }
+
+    function getDrawnHeight() {
+        var docScrollable = document.documentElement.scrollHeight - vh;
+        if (docScrollable <= 0) return 0;
+        return Math.min(vh, (window.scrollY / docScrollable) * vh);
+    }
+
+    function update(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        var dt = Math.min((timestamp - lastTime) / 1000, 0.1); // cap dt to avoid jumps
+        lastTime = timestamp;
+
+        var drawnH = getDrawnHeight();
+
+        // Draw the line
+        line.setAttribute('y2', drawnH);
+
+        // Show/hide hop nodes as line draws past them
+        hops.forEach(function(hop, i) {
+            var hopY = hopFractions[i] * vh;
+            hop.setAttribute('opacity', drawnH >= hopY ? 1 : 0);
+        });
+
+        // Move packets along the drawn line
+        pkts.forEach(function(pkt, i) {
+            if (drawnH < 8) {
+                pkt.setAttribute('cy', -10);
+                return;
+            }
+            pktOffsets[i] = (pktOffsets[i] + pktSpeeds[i] * dt) % 1;
+            pkt.setAttribute('cy', pktOffsets[i] * drawnH);
+        });
+
+        requestAnimationFrame(update);
+    }
+
+    function onResize() {
+        vh = window.innerHeight;
+        svg.setAttribute('height', vh);
+        svg.setAttribute('viewBox', '0 0 32 ' + vh);
+        setHopPositions();
+    }
+
+    window.addEventListener('resize', onResize, { passive: true });
+    onResize();
+    requestAnimationFrame(update);
+})();
+</script>
