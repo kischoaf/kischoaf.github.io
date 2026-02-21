@@ -2,11 +2,11 @@
     <!-- The vertical trace line -->
     <line id="trail-line" x1="16" y1="0" x2="16" y2="0"/>
     <!-- Hop nodes — router icons that appear as the line draws past them -->
-    <image class="trail-hop" id="hop-0" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
-    <image class="trail-hop" id="hop-1" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
-    <image class="trail-hop" id="hop-2" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
-    <image class="trail-hop" id="hop-3" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
-    <image class="trail-hop" id="hop-4" href="/assets/img/pixel-router.svg" width="22" height="22" x="5" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-0" href="/assets/img/pixel-router.svg" width="36" height="36" x="-2" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-1" href="/assets/img/pixel-router.svg" width="36" height="36" x="-2" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-2" href="/assets/img/pixel-router.svg" width="36" height="36" x="-2" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-3" href="/assets/img/pixel-router.svg" width="36" height="36" x="-2" y="0" opacity="0"/>
+    <image class="trail-hop" id="hop-4" href="/assets/img/pixel-router.svg" width="36" height="36" x="-2" y="0" opacity="0"/>
     <!-- Traveling packets -->
     <circle class="trail-pkt" id="pkt-0" cx="16" cy="-10" r="4"/>
     <circle class="trail-pkt" id="pkt-1" cx="16" cy="-10" r="4"/>
@@ -64,7 +64,7 @@
     // Hop positions as fraction of viewport height (evenly spaced)
     var hopFractions = [0.18, 0.34, 0.52, 0.68, 0.84];
 
-    var hopSize = 22; // must match width/height on <image> elements
+    var hopSize = 36; // must match width/height on <image> elements
 
     function setHopPositions() {
         hops.forEach(function(hop, i) {
