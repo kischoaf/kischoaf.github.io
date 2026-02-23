@@ -1,6 +1,7 @@
 .hero {
   background: linear-gradient(160deg, #F0F4FF 0%, #F8F9FA 60%, #FFFFFF 100%);
-  padding: 7rem 1.5rem 6rem;
+  // No top nav bar to clear — use comfortable even padding
+  padding: 5rem 1.5rem 5rem;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -78,28 +79,125 @@
   }
 
   .hero-role {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $color-accent;
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.01em;
-    // Reserve height so the layout does not shift when the typewriter
-    // clears the text and starts typing the next phrase.
-    min-height: 1.6em;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $color-primary-light;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
 
-    // Blinking cursor — only visible when the typewriter JS is active
-    &.hero-role--typing::after {
-      content: '|';
-      display: inline-block;
-      margin-left: 2px;
-      color: $color-accent;
-      animation: blink-cursor 0.75s step-end infinite;
+  .hero-role-sep {
+    color: $color-text-muted;
+    margin: 0 0.4em;
+  }
+
+  // ── Ticker banner ────────────────────────────────────────────────────────────
+  // A continuously scrolling strip of skill/tool tokens. Two identical copies
+  // of the token list sit side by side; the animation translates both left by
+  // exactly 50%, so when the first copy disappears off the left edge the second
+  // copy is already in view — creating a seamless infinite loop.
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .hero-ticker {
+    // Clip overflow so tokens outside the visible band are hidden
+    overflow: hidden;
+    // Fade the edges so the scroll feels like it emerges from / dissolves into space
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 6%,
+      rgba(0, 0, 0, 1) 94%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 6%,
+      rgba(0, 0, 0, 1) 94%,
+      transparent 100%
+    );
+    margin-bottom: 1.25rem;
+    // Narrow vertical footprint — this is a detail, not a headline
+    padding: 0.35rem 0;
+
+    &:hover .hero-ticker-track {
+      animation-play-state: paused;
     }
   }
 
-  @keyframes blink-cursor {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
+  .hero-ticker-track {
+    // Inline-flex keeps both copies on one line and sizes the container to
+    // fit all tokens without wrapping — essential for the translate trick.
+    display: inline-flex;
+    white-space: nowrap;
+    animation: ticker-scroll 30s linear infinite;
+    // Will-change hints the browser to promote this to its own compositor layer,
+    // keeping the scroll smooth and avoiding paint during animation.
+    will-change: transform;
+  }
+
+  .hero-ticker-copy {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .hero-ticker-token {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-text-muted;
+    padding: 0 0.25rem;
+    // Subtle hover so individual tokens feel interactive on desktop
+    transition: color 0.2s ease;
+  }
+
+  .hero-ticker-sep {
+    font-size: 0.6rem;
+    color: rgba(37, 99, 235, 0.35);  // faint accent-blue — visible but not competing
+    margin: 0 0.4rem;
+    user-select: none;
+    line-height: 1;
+  }
+
+  // Reduced-motion: disable scroll, show tokens as a static wrapping list
+  @media (prefers-reduced-motion: reduce) {
+    .hero-ticker {
+      overflow: visible;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .hero-ticker-track {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: none;
+      white-space: normal;
+      gap: 0.25rem 0;
+    }
+
+    // Hide the duplicate copy so tokens don't appear twice
+    .hero-ticker-copy + .hero-ticker-copy {
+      display: none;
+    }
+
+    .hero-ticker-sep {
+      display: none;
+    }
+
+    .hero-ticker-token {
+      padding: 0.15rem 0.5rem;
+      border: 1px solid $color-border;
+      border-radius: 999px;
+      background-color: rgba(37, 99, 235, 0.04);
+      font-size: 0.72rem;
+      margin: 0.2rem 0.15rem;
+    }
   }
 
   .hero-badges {
@@ -167,6 +265,7 @@
 
 @media only screen and (max-width: 768px) {
   .hero {
+    // Extra top space so the floating mobile toggle button doesn't overlap the photo
     padding: 5rem 1.25rem 4rem;
 
     h1 {

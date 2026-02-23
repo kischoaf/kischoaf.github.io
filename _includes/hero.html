@@ -4,12 +4,51 @@
             <img src="/assets/img/logo.jpg" alt="Photo of {{ site.title }}" class="hero-photo" loading="lazy">
         </div>
         <h1>{{ site.title }}</h1>
-        <p class="hero-role" id="hero-role-text">Network Engineer</p>
+        <p class="hero-role">Network Engineer <span class="hero-role-sep">·</span> CCNA <span class="hero-role-sep">·</span> Healthcare IT</p>
+
+        <!-- Scrolling skill ticker — two identical copies for a seamless loop -->
+        <div class="hero-ticker" aria-hidden="true">
+            <div class="hero-ticker-track">
+                <span class="hero-ticker-copy">
+                    <span class="hero-ticker-token">Cisco IOS-XE</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Python</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Netmiko</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">DNS</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Docker</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Cloudflare</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Unraid</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Catalyst 9300</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">CCNA</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Network+</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">SSH</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">openpyxl</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">AdGuard</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Homelab</span><span class="hero-ticker-sep">◆</span>
+                </span>
+                <!-- Duplicate — fills in as the first copy scrolls off screen -->
+                <span class="hero-ticker-copy" aria-hidden="true">
+                    <span class="hero-ticker-token">Cisco IOS-XE</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Python</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Netmiko</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">DNS</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Docker</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Cloudflare</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Unraid</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Catalyst 9300</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">CCNA</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Network+</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">SSH</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">openpyxl</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">AdGuard</span><span class="hero-ticker-sep">◆</span>
+                    <span class="hero-ticker-token">Homelab</span><span class="hero-ticker-sep">◆</span>
+                </span>
+            </div>
+        </div>
+
         <div class="hero-badges">
             <span class="badge"><i class="fas fa-network-wired"></i> Cisco Catalyst &amp; Nexus</span>
             <span class="badge"><i class="fab fa-python"></i> Python Automation</span>
             <span class="badge"><i class="fas fa-hospital"></i> Healthcare Infrastructure</span>
-            <span class="badge"><i class="fas fa-certificate"></i> CCNA</span>
             <span class="badge"><i class="fas fa-certificate"></i> Network+</span>
         </div>
         <p class="hero-bio">{{ site.bio }}</p>
@@ -20,8 +59,8 @@
         </p>
         {% endif %}
         <div class="hero-links">
-            <a href="https://github.com/{{ site.github_username }}" class="btn-primary-custom" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> GitHub
+            <a href="/assets/docs/resume.pdf" class="btn-primary-custom" target="_blank" rel="noopener">
+                <i class="fas fa-file-alt"></i> Resume
             </a>
             {% if site.linkedin_username and site.linkedin_username != "" %}
             <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="btn-outline-custom" target="_blank" rel="noopener">
@@ -42,7 +81,8 @@
         { sel: '.hero-photo-wrapper', from: 'opacity:0;transform:scale(0.5)', to: 'opacity:1;transform:scale(1)', dur: '0.8s', delay: 300 },
         { sel: '.hero h1', from: 'opacity:0;transform:translateX(-60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 600 },
         { sel: '.hero-role', from: 'opacity:0;transform:translateX(60px)', to: 'opacity:1;transform:translateX(0)', dur: '0.7s', delay: 800 },
-        { sel: '.hero-badges', from: 'opacity:0;transform:translateY(20px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 1000 },
+        { sel: '.hero-ticker', from: 'opacity:0;transform:translateY(10px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 950 },
+        { sel: '.hero-badges', from: 'opacity:0;transform:translateY(20px)', to: 'opacity:1;transform:translateY(0)', dur: '0.6s', delay: 1100 },
         { sel: '.hero-bio', from: 'opacity:0;transform:translateY(40px)', to: 'opacity:1;transform:translateY(0)', dur: '0.7s', delay: 1200 },
         { sel: '.hero-links', from: 'opacity:0;transform:translateY(40px)', to: 'opacity:1;transform:translateY(0)', dur: '0.7s', delay: 1500 }
     ];
@@ -61,76 +101,6 @@
                 el.style.cssText += item.to;
             }, item.delay);
         });
-    });
-})();
-
-// ── Typewriter effect ─────────────────────────────────────────────────────────
-(function() {
-    var phrases = [
-        'Network Engineer',
-        'Infrastructure Automation',
-        'Cisco | Python | DNS'
-    ];
-
-    // Timing constants (ms)
-    var TYPE_SPEED   = 65;   // ms per character typed
-    var DELETE_SPEED = 35;   // ms per character deleted
-    var PAUSE_AFTER  = 2200; // pause before deleting
-    var PAUSE_BEFORE = 400;  // pause between delete-done and next phrase
-    // Delay before typewriter starts — must clear the entry animation
-    // (.hero-role fades in at 800ms after load over 700ms = ~1500ms total)
-    var START_DELAY  = 2600;
-
-    var el = document.getElementById('hero-role-text');
-    if (!el) return;
-
-    var phraseIndex  = 0;
-    var charIndex    = 0;
-    var isDeleting   = false;
-
-    // Add cursor class so CSS can render the blinking pipe
-    el.classList.add('hero-role--typing');
-
-    function tick() {
-        var current = phrases[phraseIndex];
-
-        if (isDeleting) {
-            // Remove one character
-            charIndex--;
-            el.textContent = current.slice(0, charIndex);
-
-            if (charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(tick, PAUSE_BEFORE);
-            } else {
-                setTimeout(tick, DELETE_SPEED);
-            }
-        } else {
-            // Add one character
-            charIndex++;
-            el.textContent = current.slice(0, charIndex);
-
-            if (charIndex === current.length) {
-                // Finished typing — pause then start deleting
-                setTimeout(function() {
-                    isDeleting = true;
-                    tick();
-                }, PAUSE_AFTER);
-            } else {
-                setTimeout(tick, TYPE_SPEED);
-            }
-        }
-    }
-
-    // Wait for page load, then wait for entry animation to clear
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            // Clear the static text so the cursor blinks alone briefly
-            charIndex = 0;
-            el.textContent = '';
-            tick();
-        }, START_DELAY);
     });
 })();
 </script>

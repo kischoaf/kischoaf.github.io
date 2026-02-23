@@ -31,7 +31,7 @@ $transition-speed: 0.2s;
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 88px; // clears the sticky navbar
 }
 
 body {
@@ -562,6 +562,26 @@ a.btn-outline-custom {
   background-color: rgba(37, 99, 235, 0.06);
   color: $color-accent;
   border-color: rgba(37, 99, 235, 0.2);
+}
+
+// Bidirectional scroll fade (sections fade in on enter, out on exit)
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 // Fade-in animation

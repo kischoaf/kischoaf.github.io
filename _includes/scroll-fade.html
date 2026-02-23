@@ -1,0 +1,30 @@
+<script>
+(function () {
+    // Skip if browser doesn't support IntersectionObserver
+    if (!('IntersectionObserver' in window)) return;
+
+    // Target all sections except the hero (which should always be visible on load)
+    var targets = document.querySelectorAll('.section:not(#about), .stats-strip');
+    if (!targets.length) return;
+
+    targets.forEach(function (el) {
+        el.classList.add('scroll-fade');
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.15  // trigger when 15% of the section is in view
+    });
+
+    targets.forEach(function (el) {
+        observer.observe(el);
+    });
+})();
+</script>

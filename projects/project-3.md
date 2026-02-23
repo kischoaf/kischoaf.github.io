@@ -1,11 +1,12 @@
 ---
 title: AdGuard Home DNS Infrastructure
 layout: page
+abstract: >
+  A dedicated DNS infrastructure running on a Raspberry Pi that handles name resolution for every
+  device on my home network. It filters ads and malicious domains, resolves internal hostnames for
+  self-hosted services, and has been running continuously since 2023. This is less of a "block ads"
+  project and more of a deliberate DNS layer sitting between my network and the public internet.
 ---
-
-## Overview
-
-A dedicated DNS infrastructure running on a Raspberry Pi that handles name resolution for every device on my home network. It filters ads and malicious domains, resolves internal hostnames for self-hosted services, and has been running continuously since 2023. This is less of a "block ads" project and more of a deliberate DNS layer sitting between my network and the public internet.
 
 ## What I Built
 
@@ -21,6 +22,8 @@ For upstream resolution, I use Cloudflare (1.1.1.1) as the primary and Quad9 (9.
 
 Beyond filtering, AdGuard handles internal DNS records for my self-hosted services. `server.lan` resolves to my home server, which runs Immich and other services. `computer.lan` resolves to my desktop PC and is what I use for RDP access. This is a simple form of split-horizon DNS — internal hostnames that only make sense inside my network resolve correctly without touching public DNS, and I do not have to remember or type IP addresses to reach local services.
 
+<!-- ![AdGuard Home dashboard showing query stats and blocklist activity](../assets/img/projects/adguard-dashboard.jpg) -->
+
 **Blocklists**
 
 I run the default AdGuard blocklists plus several community-maintained lists I added over time. The community lists target specific categories the defaults are lighter on — trackers, telemetry endpoints, and a few domain categories I wanted to filter more aggressively.
@@ -34,6 +37,8 @@ The internal DNS records for `server.lan` and `computer.lan` are static A record
 The upstream choice to run plain DNS rather than DNS-over-HTTPS or DNS-over-TLS is a deliberate tradeoff. In a home environment with a trusted local resolver, the primary privacy benefit of encrypted DNS — preventing your ISP from seeing your queries — is already partially addressed by centralizing resolution through a controlled server. The added complexity of encrypted upstream configuration was not worth it for this use case.
 
 The Raspberry Pi's role as dedicated hardware (rather than a service running on a shared machine) means a reboot of any other device on the network does not affect DNS availability. It is a small architectural decision, but it matters for something that everything else depends on.
+
+<!-- ![DNS query log showing internal vs upstream resolution](../assets/img/projects/adguard-querylog.jpg) -->
 
 ## Problem It Solves
 
@@ -49,13 +54,4 @@ The internal DNS records have made local service access noticeably simpler. Reac
 
 Running this has also built familiarity with DNS as an operational layer — not just as a name-to-IP lookup mechanism, but as a place where traffic policy, visibility, and service routing can be applied across an entire network from a single point.
 
-## Photos
-
-<!-- Drop your images in /assets/img/projects/ and uncomment the lines below -->
-<!-- ![Description](../assets/img/projects/your-image-1.jpg) -->
-<!-- ![Description](../assets/img/projects/your-image-2.jpg) -->
-
-## Documentation
-
-<!-- Link to a PDF or embed a document if you have one -->
-<!-- [View Documentation](../assets/docs/your-document.pdf) -->
+<!-- ![Uptime and stats summary from AdGuard](../assets/img/projects/adguard-stats.jpg) -->

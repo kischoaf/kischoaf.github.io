@@ -12,5 +12,11 @@ layout: default
 </div>
 
 <div class="container page">
+    {% if page.abstract %}
+    <div class="abstract">
+        <span class="abstract-label">Abstract</span>
+        <p>{{ page.abstract }}</p>
+    </div>
+    {% endif %}
     {{ content }}
 </div>
