@@ -50,6 +50,7 @@
 
     function onScroll() {
         updateProgress();
+        document.querySelector('.nav-bar').classList.toggle('scrolled', window.scrollY > 80);
 
         if (!sections.length) return;
         var scrollY  = window.scrollY + 100;

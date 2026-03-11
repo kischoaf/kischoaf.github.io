@@ -1,5 +1,8 @@
 .hero {
-  background: linear-gradient(160deg, #F0F4FF 0%, #F8F9FA 60%, #FFFFFF 100%);
+  background:
+    linear-gradient(155deg, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+    linear-gradient(320deg, rgba(30, 41, 59, 0.04) 0%, transparent 50%),
+    #FFFFFF;
   // No top nav bar to clear — use comfortable even padding
   padding: 5rem 1.5rem 5rem;
   text-align: center;
@@ -12,9 +15,9 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(37, 99, 235, 0.07) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px);
+    background-size: 48px 48px;
     pointer-events: none;
   }
 
@@ -35,8 +38,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 154px; // photo(140) + white border(3) + accent ring(4) * 2 sides
-      height: 154px;
+      width: 166px; // photo(152) + white border(3) + accent ring(4) * 2 sides
+      height: 166px;
       border-radius: 50%;
       border: 2px solid $color-accent;
       opacity: 0;
@@ -47,15 +50,16 @@
   }
 
   .hero-photo {
-    width: 140px;
-    height: 140px;
+    width: 152px;
+    height: 152px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
     border: 3px solid #FFFFFF;
     box-shadow:
       0 0 0 4px $color-accent,
-      0 8px 32px rgba(37, 99, 235, 0.18);
+      0 0 0 6px rgba(37, 99, 235, 0.15),
+      0 12px 40px rgba(37, 99, 235, 0.22);
   }
 
   @keyframes pulse-ring {
@@ -70,8 +74,8 @@
   }
 
   h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: clamp(2.4rem, 5vw, 3.75rem);
+    font-weight: 800;
     color: $color-primary;
     letter-spacing: -0.03em;
     margin-bottom: 0.4rem;
@@ -79,11 +83,11 @@
   }
 
   .hero-role {
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.05rem;
+    font-weight: 500;
     color: $color-primary-light;
     margin-bottom: 1rem;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
 
   .hero-role-sep {
@@ -215,7 +219,8 @@
       background-color: rgba(37, 99, 235, 0.08);
       color: $color-accent;
       border: 1px solid rgba(37, 99, 235, 0.2);
-      border-radius: 999px;
+      border-left: 2px solid $color-accent;
+      border-radius: 0.35rem;
       font-size: 0.8rem;
       font-weight: 500;
     }
@@ -237,6 +242,10 @@
     color: $color-text-muted;
     margin: 0 auto 1.75rem;
     font-weight: 400;
+    background: rgba(52, 211, 153, 0.06);
+    border: 1px solid rgba(52, 211, 153, 0.18);
+    border-radius: var(--radius-full, 999px);
+    padding: 0.3rem 0.9rem;
   }
 
   .hero-currently-dot {
@@ -273,8 +282,8 @@
     }
 
     .hero-photo {
-      width: 112px;
-      height: 112px;
+      width: 120px;
+      height: 120px;
     }
 
     .hero-links {

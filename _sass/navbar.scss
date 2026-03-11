@@ -60,7 +60,13 @@
   position: sticky;
   top: 2px; // sits just below the progress bar
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-bar.scrolled {
+  background: rgba(30, 41, 59, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 // Sliding active indicator
@@ -91,8 +97,8 @@
 
 .nav-brand {
   color: #FFFFFF;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
   text-decoration: none;
   letter-spacing: -0.02em;
 
@@ -111,8 +117,10 @@
   a {
     color: $color-footer-text;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.825rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     transition: color $transition-speed ease;
     padding: 0.25rem 0;
     position: relative;
