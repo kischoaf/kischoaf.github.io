@@ -1,9 +1,6 @@
 <footer id="contact" class="site-footer">
     <div class="footer-content">
         <h2 class="footer-heading">Get In Touch</h2>
-        <p class="footer-tagline">
-            Open to senior network engineering roles, consulting, and interesting infrastructure conversations.
-        </p>
 
         <div class="footer-terminal" aria-label="Contact terminal block">
             <div class="ft-line">
@@ -13,28 +10,23 @@
             <div class="ft-line ft-output">
                 PING {{ site.email }} &hellip; Host is <span class="ft-up">UP</span>
             </div>
-            <div class="ft-line">
-                <span class="ft-prompt">&gt;</span>
-                <span class="ft-cmd">traceroute to opportunity</span>
-            </div>
             <div class="ft-line ft-output">
-                Hop 1: <a href="mailto:{{ site.email }}" class="ft-link">{{ site.email }}</a>
-                <span class="ft-open">&nbsp;[OPEN]</span>
+                Reply from: <a href="mailto:{{ site.email }}" class="ft-link">{{ site.email }}</a>
             </div>
         </div>
 
         <div class="footer-social">
             {% if site.linkedin_username and site.linkedin_username != "" %}
             <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
+                LinkedIn
             </a>
             {% endif %}
             <a href="mailto:{{ site.email }}" aria-label="Email">
-                <i class="fas fa-envelope"></i>
+                Email
             </a>
             {% if site.twitter_username and site.twitter_username != "" %}
             <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" aria-label="Twitter/X">
-                <i class="fab fa-twitter"></i>
+                Twitter/X
             </a>
             {% endif %}
         </div>

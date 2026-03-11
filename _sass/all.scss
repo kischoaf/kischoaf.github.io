@@ -43,6 +43,12 @@ body {
   line-height: 1.6;
 }
 
+.container {
+  width: calc(100% - 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 // Stats strip
 .stats-strip {
   background-color: $color-primary;
@@ -317,108 +323,187 @@ a.btn-outline-custom {
 
 // Skills & Certifications
 .skills-body {
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
+  position: relative;
+}
+
+#skills.section {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08), transparent 42%),
+    radial-gradient(circle at 80% 0%, rgba(30, 41, 59, 0.08), transparent 36%),
+    $color-bg;
+}
+
+.skills-subtitle {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 1.1rem;
+  margin-bottom: 2.1rem;
 }
 
 .skill-group {
-  background-color: $color-bg-white;
-  border: 1px solid $color-border;
-  border-radius: $card-radius;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px $color-shadow;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, #FFFFFF 100%);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.06),
+    0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(37, 99, 235, 0.45);
+    box-shadow:
+      0 16px 34px rgba(15, 23, 42, 0.12),
+      0 1px 3px rgba(15, 23, 42, 0.08);
+  }
 }
 
 .skill-group-title {
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.11em;
   color: $color-accent;
-  margin: 0 0 1rem 0;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid $color-border;
+  margin: 0 0 0.95rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .skill-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  gap: 0.55rem;
 }
 
 .skill-item {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: $color-text;
-  padding: 0.3rem 0;
-  padding-left: 1rem;
+  padding: 0.45rem 0.65rem 0.45rem 1.35rem;
   position: relative;
-  line-height: 1.4;
+  line-height: 1.35;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 0.65rem;
+  background-color: rgba(248, 250, 252, 0.7);
 
   &::before {
-    content: '';
+    content: '•';
     position: absolute;
-    left: 0;
-    top: 0.6em;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: $color-accent;
+    left: 0.55rem;
+    top: 0.47rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: $color-accent;
   }
 }
 
+.cert-wrap {
+  padding: 0.65rem 0.2rem 0;
+}
+
+.cert-heading {
+  text-align: center;
+  margin: 0 0 1rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: $color-primary-light;
+  font-weight: 700;
+}
+
 .cert-row {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
 }
 
 .cert-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: $color-bg-white;
-  border: 1px solid $color-border;
-  border-radius: $card-radius;
-  padding: 1.5rem 2.5rem;
-  box-shadow: 0 1px 3px $color-shadow;
-  min-width: 180px;
-  text-align: center;
+  align-items: flex-start;
+  gap: 0.35rem;
+  background: linear-gradient(130deg, rgba(30, 41, 59, 0.97) 0%, rgba(37, 99, 235, 0.95) 100%);
+  border: 1px solid rgba(203, 213, 225, 0.3);
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.22);
+  text-align: left;
+
+  &::after {
+    content: 'Verified';
+    margin-top: 0.2rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.78);
+  }
 }
 
-.cert-icon {
-  font-size: 1.5rem;
-  color: $color-accent;
+.cert-logo-wrap {
+  width: 24px;
+  height: 24px;
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.9);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+}
+
+.cert-logo {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  object-fit: contain;
+  display: block;
+}
+
+.cert-card img {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
 }
 
 .cert-name {
-  font-size: 1rem;
+  font-size: 1.04rem;
   font-weight: 700;
-  color: $color-primary;
+  color: #FFFFFF;
 }
 
 .cert-issuer {
-  font-size: 0.8rem;
-  color: $color-text-muted;
+  font-size: 0.78rem;
+  color: rgba(226, 232, 240, 0.88);
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
 
 @media only screen and (max-width: 768px) {
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
-  .cert-card {
-    min-width: 140px;
-    padding: 1.25rem 2rem;
+  .skill-group {
+    padding: 1rem;
+  }
+
+  .cert-row {
+    grid-template-columns: 1fr;
   }
 }
 

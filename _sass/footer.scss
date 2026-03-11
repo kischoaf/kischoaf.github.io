@@ -96,17 +96,25 @@
   .footer-social {
     display: flex;
     justify-content: center;
-    gap: 1.75rem;
+    gap: 0.65rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 
     a {
       color: $color-footer-text;
-      font-size: 1.35rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
       transition: color $transition-speed ease, transform $transition-speed ease;
 
       &:hover {
         color: #FFFFFF;
         transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.45);
       }
     }
   }

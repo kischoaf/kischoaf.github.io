@@ -29,6 +29,8 @@ categories:
 certifications:
   - name: CCNA
     issuer: Cisco
+    logo: ccna_cert.png
 
   - name: CompTIA Network+
     issuer: CompTIA
+    logo: comptia_network_plus_cert.png

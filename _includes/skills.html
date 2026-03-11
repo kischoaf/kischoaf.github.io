@@ -1,6 +1,7 @@
 <section id="skills" class="section">
     <div class="container">
         <h2 class="section-heading">Skills & Certifications</h2>
+        <p class="section-subtitle skills-subtitle">Core tooling used in production networks, automation workflows, and homelab infrastructure.</p>
         <div class="skills-body">
             <div class="skills-grid">
                 {% for category in site.data.skills.categories %}
@@ -15,14 +16,21 @@
                 {% endfor %}
             </div>
             {% if site.data.skills.certifications %}
-            <div class="cert-row">
-                {% for cert in site.data.skills.certifications %}
-                <div class="cert-card">
-                    <i class="fas fa-certificate cert-icon"></i>
-                    <span class="cert-name">{{ cert.name }}</span>
-                    <span class="cert-issuer">{{ cert.issuer }}</span>
+            <div class="cert-wrap">
+                <p class="cert-heading">Verified Certifications</p>
+                <div class="cert-row">
+                    {% for cert in site.data.skills.certifications %}
+                    <div class="cert-card">
+                        {% if cert.logo %}
+                        <div class="cert-logo-wrap">
+                            <img src="/assets/img/certs/{{ cert.logo }}" alt="{{ cert.name }} logo" class="cert-logo" loading="lazy">
+                        </div>
+                        {% endif %}
+                        <span class="cert-name">{{ cert.name }}</span>
+                        <span class="cert-issuer">{{ cert.issuer }}</span>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
             {% endif %}
         </div>

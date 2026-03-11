@@ -3,9 +3,7 @@
 <header class="nav-bar">
     <div class="nav-content">
         <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">Menu</button>
         <ul class="nav-links" id="nav-links">
             {% for link in site.nav_links %}
             <li><a href="{{ link.url }}" data-section="{{ link.url | remove: '#' }}">{{ link.title }}</a></li>
