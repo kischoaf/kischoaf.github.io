@@ -6,7 +6,7 @@
   desc: >-
     Production toolkit used across 75+ Cisco Catalyst 9300 migrations in live
     healthcare environments. Automates MAC/CDP comparison, port mapping, and
-    baseline config generation — cutting post-cutover validation by 3+ hours per site.
+    baseline config generation — saving 3+ hours per cutover.
   tags: [Python, Netmiko, Cisco IOS-XE, Catalyst 9300]
 
 - title: AdGuard Home DNS Infrastructure

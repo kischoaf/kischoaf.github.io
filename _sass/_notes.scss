@@ -1,0 +1,304 @@
+// Homepage preview
+#notes {
+  background-color: #F1F5F9;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+}
+
+.note-card {
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-white;
+  border: 1px solid $color-border;
+  border-radius: $card-radius;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid transparent;
+  transition: box-shadow $transition-speed ease, transform $transition-speed ease, border-top-color $transition-speed ease;
+
+  &:hover {
+    color: inherit;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    border-top-color: $color-accent;
+  }
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.note-date {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: $color-text-muted;
+}
+
+.note-category {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-accent;
+  background: rgba(37,99,235,0.06);
+  border: 1px solid rgba(37,99,235,0.15);
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-full, 999px);
+}
+
+.note-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-primary;
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.note-excerpt {
+  font-size: 0.9rem;
+  color: $color-text-muted;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-accent;
+}
+
+.notes-footer {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+// Post layout
+.post-banner {
+  background: $color-primary;
+  padding: 2rem 0 2.25rem;
+}
+
+.post-banner-title {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: $color-footer-text;
+  font-weight: 500;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.post-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(147,197,253,0.9);
+  background: rgba(37,99,235,0.2);
+  border: 1px solid rgba(37,99,235,0.35);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full, 999px);
+}
+
+.post {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+
+  h2 {
+    font-weight: 700;
+    color: $color-primary-light;
+    margin: 2em 0 0.5em;
+    font-size: 1.35rem;
+    border-bottom: 1px solid $color-border;
+    padding-bottom: 0.4em;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: $color-primary;
+    font-size: 1.1rem;
+    margin: 1.5em 0 0.4em;
+  }
+
+  p {
+    color: $color-text;
+    line-height: 1.8;
+    margin-bottom: 1.1em;
+    font-size: 1.025rem;
+  }
+
+  li {
+    color: $color-text;
+    line-height: 1.7;
+    margin-bottom: 0.4em;
+  }
+
+  code {
+    background: rgba(37,99,235,0.06);
+    color: $color-accent;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.875em;
+  }
+
+  pre {
+    background: $color-primary;
+    border-radius: $card-radius;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+
+    code {
+      background: none;
+      color: rgba(203,213,225,0.9);
+      padding: 0;
+      line-height: 1.65;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid $color-accent;
+    background: rgba(37,99,235,0.04);
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 0 $card-radius $card-radius 0;
+
+    p {
+      margin: 0;
+      font-style: italic;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 6px;
+    display: block;
+    margin: 1.5rem auto;
+    border: 1px solid $color-border;
+  }
+}
+
+.post-footer-nav {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $color-border;
+}
+
+// Notes index
+.notes-index {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.notes-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notes-index-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.25rem;
+  row-gap: 0.25rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid $color-border;
+
+  &:first-child {
+    border-top: 1px solid $color-border;
+  }
+
+  .note-date {
+    font-family: monospace;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+}
+
+.notes-index-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.notes-index-tags {
+  grid-column: 2;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.notes-empty {
+  color: $color-text-muted;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+@media (max-width: 768px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .post-banner-title {
+    font-size: 1.5rem;
+  }
+
+  .post {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .notes-index-item {
+    grid-template-columns: 1fr;
+  }
+}

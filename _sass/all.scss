@@ -73,6 +73,8 @@ $transition-speed: 0.2s;
 @import 'hero';
 @import 'page';
 @import 'footer';
+@import 'homelab';
+@import 'notes';
 
 // === Global Styles ===
 * {
@@ -353,15 +355,6 @@ a.btn-outline-custom {
     background-color: $color-primary;
     color: #FFFFFF;
     transform: translateY(-1px);
-  }
-}
-
-// Card link wrapper
-.card-link {
-  color: inherit;
-
-  &:hover {
-    color: inherit;
   }
 }
 
@@ -822,23 +815,6 @@ a.btn-outline-custom {
     transform: none;
     transition: none;
   }
-}
-
-// Fade-in animation
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  // Stagger the animations
-  &:nth-child(1) { transition-delay: 0s; }
-  &:nth-child(2) { transition-delay: 0.15s; }
-  &:nth-child(3) { transition-delay: 0.3s; }
 }
 
 // Responsive

@@ -1,0 +1,24 @@
+<section id="notes" class="section notes-section">
+    <div class="container">
+        <h2 class="section-heading">Field Notes</h2>
+        <p class="section-subtitle">Writeups from the lab, the field, and wherever something breaks interestingly.</p>
+
+        <div class="notes-grid">
+            {% for post in site.posts limit: 3 %}
+            <a href="{{ post.url | relative_url }}" class="note-card">
+                <div class="note-meta">
+                    <time class="note-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                    {% if post.tags and post.tags.size > 0 %}<span class="note-category">{{ post.tags | first }}</span>{% endif %}
+                </div>
+                <h3 class="note-title">{{ post.title }}</h3>
+                {% if post.excerpt %}<p class="note-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
+                <span class="note-read-more">Read &rarr;</span>
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="notes-footer">
+            <a href="{{ '/notes/' | relative_url }}" class="btn-outline-custom">All Field Notes</a>
+        </div>
+    </div>
+</section>

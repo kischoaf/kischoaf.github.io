@@ -1,73 +1,31 @@
-# Portfolio Template
+# kieranschoaf.com
 
-This is a Jekyll website template designed for Pre Fellowship Fellows. During the Pre Fellowship, you'll build a project
+Source for [kieranschoaf.com](https://kieranschoaf.com), the portfolio of Kieran Schoaf, a network engineer focused on Cisco infrastructure and Python automation.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/97877b3e-9f36-4939-a24c-0b622f923d50/deploy-status)](https://app.netlify.com/sites/mlh-fellowship-portfolio/deploys)
+Built with [Jekyll](https://jekyllrb.com) and deployed to GitHub Pages with GitHub Actions.
 
+## Local development
 
-## Make your own!
+Requires the Ruby version in `.ruby-version` and Bundler.
 
-1. Use the Template button.
-2. Update `_config.yml` to contain your information.
-    1. Change `url` to the URL you'll be hosting it at
-    2. Make sure it has the /
-3. Use something like Netlify or GitHub Pages to deploy (note, this only works on username.github.io, not username.github.io/repo-name)
-
-## Add your portfolio
-
-Head to `_data` and fill out either `projects.yml`, `experience.yml` and `education.yml`.
-
-Project example.
-```yaml
-- title: Machine Learning Project
-  event: MLH Fellowship Pre Fellowship - Batch 3.5
-  date: Fall 2020
-```
-
-Experience example.
-```yaml
-- role: Pre Fellowship Fellow
-  company: MLH Fellowship
-  dates: Summer 2021
-  logo: fellowship.svg
-```
-
-Education example.
-```yaml
-- course: Pre Fellowship Fellow
-  institute: MLH Fellowship
-  dates: Summer 2021
-  logo: fellowship.svg
-```
-## Add project posts
-
-1. Make a new `.md` file inside of `projects`.
-2. Add the header to your markdown file (see below) and change the title to the name of your blog post.
-3. Write your project page! Can be a README from GitHub or your Devpost page.
-4. Add the `page-name` field to your `projects.yml` (see below).
-
-Top of post markdown file post.
-```
----
-title: Project
-layout: page
----
-```
-
-`projects.yml` with the `page-name` field.
-
-```yaml
-- title: Machine Learning Project
-  event: MLH Fellowship Pre Fellowship - Batch 3.5
-  date: Summer 2021
-  page-name: project
-```
-
-## Development
-
-If you want to test it locally or add some new features, run the below commands. Make sure to have Ruby and Bundler installed.
-
-```
-bundle install --path vendor/bundle
+```bash
+bundle install
 bundle exec jekyll serve
 ```
+
+The site runs at http://localhost:4000.
+
+## Where things live
+
+| Path | Contents |
+| --- | --- |
+| `_config.yml` | Site metadata, bio, navigation |
+| `_data/` | Experience, education, projects, skills, homelab |
+| `projects/` | Project case study pages |
+| `_posts/` | Field Notes posts |
+| `_includes/`, `_layouts/` | Page sections and templates |
+| `_sass/` | Styles |
+
+## Deployment
+
+Every push to `main` builds the site, checks it for broken internal links and images, and publishes it to GitHub Pages. Pull requests run the same build and checks without publishing.

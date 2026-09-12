@@ -5,8 +5,8 @@ abstract: >
   A Python-based automation toolkit I built to support Cisco Catalyst 9300 switch migrations in
   production healthcare environments. It wraps four core workflows — config pulling and port
   mapping, baseline config generation, pre/post cutover comparison, and live port monitoring —
-  into a single GUI-driven application. I use it daily at work and it has cut post-migration
-  validation time by more than three hours per cutover.
+  into a single GUI-driven application. I use it daily at work, and it saves more than three
+  hours per cutover.
 ---
 
 ## What I Built
@@ -59,7 +59,7 @@ The result is fewer steps that require human attention during the highest-stress
 
 ## Results
 
-The toolkit is in active daily use across an ongoing healthcare network migration engagement covering 10+ hospital locations and 75+ switch migrations. Post-migration validation time is down by more than three hours per cutover. The port maps and stack summaries it generates have been incorporated into the broader documentation workflow for the engagement.
+The toolkit is in active daily use across an ongoing healthcare network migration engagement covering 10+ hospital locations and 75+ switch migrations, and it saves more than three hours per cutover. The port maps and stack summaries it generates have been incorporated into the broader documentation workflow for the engagement.
 
 The project also represents the first time I built a tool that other engineers on a project depend on operationally — which changed how I think about usability, error handling, and what "done" actually means for something that runs in a production change window.
 

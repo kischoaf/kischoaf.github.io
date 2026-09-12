@@ -9,7 +9,7 @@
     stabilization, coordinating onsite engineering teams in mission-critical environments.
   highlights:
     - "75+ switch migrations across 10+ hospitals with zero unplanned downtime"
-    - "Built Python automation toolkit (Netmiko) cutting post-migration validation time by 3+ hours per cutover"
+    - "Built a Python/Netmiko automation toolkit used on every migration, saving 3+ hours per cutover"
     - "Authored reusable MOPs, validation runbooks, and port-mapping templates adopted across the engagement"
     - "Architected and executed Layer 2/3 cutovers on live Cisco Catalyst and Nexus infrastructure"
 

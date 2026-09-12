@@ -6,7 +6,8 @@
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">Menu</button>
         <ul class="nav-links" id="nav-links">
             {% for link in site.nav_links %}
-            <li><a href="{{ link.url }}" data-section="{{ link.url | remove: '#' }}">{{ link.title }}</a></li>
+            {%- assign link_parts = link.url | split: '#' %}
+            <li><a href="{{ link.url | relative_url }}"{% if link_parts.size > 1 %} data-section="{{ link_parts.last }}"{% endif %}>{{ link.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
@@ -23,6 +24,13 @@
     toggle.addEventListener('click', function() {
         var isOpen = links.classList.toggle('active');
         toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close the mobile menu once a destination is picked
+    links.addEventListener('click', function(e) {
+        if (!e.target.closest('a')) return;
+        links.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
     });
 
     // ── Scroll progress bar ──────────────────────────────────────────────────

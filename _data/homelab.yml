@@ -1,0 +1,58 @@
+intro: >-
+  My lab is where I test everything before production — new protocols,
+  automation scripts, weird edge cases. If it survives everything I throw
+  at it here, I'm confident deploying it at scale.
+
+gear:
+  - name: Ubiquiti Dream Machine Pro
+    role: Core Router & Firewall
+    desc: >-
+      Handles routing, firewall policy, IDS/IPS, and VLAN segmentation.
+      UniFi controller manages wireless and switching from a single pane of glass.
+    tags: [UniFi, VLANs, Firewall, IDS/IPS, Routing]
+    status: production
+
+  - name: Raspberry Pi 4
+    role: DNS & Split-Horizon Resolver
+    desc: >-
+      Runs AdGuard Home, filtering 19% of all DNS queries network-wide.
+      Split-horizon DNS resolves internal .lan hostnames without exposing them externally.
+    tags: [AdGuard Home, DNS, Split-Horizon, Raspberry Pi]
+    status: production
+
+  - name: Unraid NAS
+    role: Storage & Container Host
+    desc: >-
+      8TB array hosting Docker workloads — Immich, PostgreSQL, Redis, Cloudflare Tunnel.
+      Zero open inbound ports; remote access tunneled via Cloudflare.
+    tags: [Unraid, Docker, Immich, Cloudflare Tunnel, PostgreSQL]
+    status: production
+
+  - name: EVE-NG
+    role: Network Simulation Lab
+    desc: >-
+      Virtual network emulation for BGP lab work and CCNP SP study. Current topology
+      runs iBGP and eBGP sessions between simulated SP routers.
+    tags: [EVE-NG, BGP, CCNP SP, Cisco IOS-XE, Simulation]
+    status: active-study
+
+topology: |
+  ┌─────────────────────────────────────────────────────┐
+  │                    ISP Upstream                      │
+  └──────────────────────┬──────────────────────────────┘
+                         │
+           ┌─────────────▼─────────────┐
+           │   Dream Machine Pro        │
+           │   Router / Firewall        │
+           │   VLANs: IoT │ Lab │ Mgmt  │
+           └──┬──────────┬─────────┬───┘
+              │          │         │
+    ┌─────────▼──┐  ┌────▼────┐  ┌▼──────────────┐
+    │ Raspberry  │  │ Unraid  │  │   EVE-NG       │
+    │ Pi 4       │  │ NAS     │  │   Simulation   │
+    │ AdGuard    │  │ 8TB     │  │   BGP Lab      │
+    │ DNS        │  │ Docker  │  │                │
+    └────────────┘  └─────────┘  └────────────────┘
+          │               │
+      DNS for all    Immich · CF Tunnel
+      lab segments   PostgreSQL · Redis

@@ -1,0 +1,78 @@
+<section id="lab" class="section lab-section">
+    <div class="container">
+        <h2 class="section-heading">Homelab</h2>
+        {% if site.data.homelab.intro %}
+        <p class="section-subtitle lab-intro">{{ site.data.homelab.intro }}</p>
+        {% endif %}
+
+        <div class="lab-body">
+            <div class="card-container lab-grid">
+                {% for item in site.data.homelab.gear %}
+                <div class="card lab-card">
+                    <div class="info">
+                        <div class="lab-card-header">
+                            <p class="title">{{ item.name }}</p>
+                            {% if item.status %}
+                            <span class="lab-status lab-status--{{ item.status }}">
+                                {% if item.status == "production" %}Live{% elsif item.status == "active-study" %}Study{% else %}{{ item.status }}{% endif %}
+                            </span>
+                            {% endif %}
+                        </div>
+                        <p class="location">{{ item.role }}</p>
+                        {% if item.desc %}<p class="desc">{{ item.desc }}</p>{% endif %}
+                        {% if item.tags %}
+                        <div class="lab-tags">
+                            {% for tag in item.tags %}<span class="lab-tag">{{ tag }}</span>{% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% if site.data.homelab.topology %}
+            <div class="lab-topology-wrap">
+                <p class="lab-topology-label">Network Topology</p>
+                <div class="lab-terminal">
+                    <div class="lab-terminal-bar">
+                        <span class="lab-terminal-dot lab-terminal-dot--red"></span>
+                        <span class="lab-terminal-dot lab-terminal-dot--yellow"></span>
+                        <span class="lab-terminal-dot lab-terminal-dot--green"></span>
+                        <span class="lab-terminal-title">lab-topology.txt</span>
+                    </div>
+                    <pre class="lab-topology">{{ site.data.homelab.topology }}</pre>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    var cards = document.querySelectorAll('#lab .lab-card');
+    cards.forEach(function(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(32px)';
+    });
+    var animated = false;
+    function animateCards() {
+        if (animated) return;
+        var section = document.getElementById('lab');
+        if (!section) return;
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            animated = true;
+            cards.forEach(function(card, i) {
+                setTimeout(function() {
+                    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, i * 150);
+            });
+            window.removeEventListener('scroll', animateCards);
+        }
+    }
+    window.addEventListener('scroll', animateCards);
+    window.addEventListener('load', animateCards);
+})();
+</script>

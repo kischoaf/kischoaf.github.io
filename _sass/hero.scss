@@ -27,6 +27,48 @@
     position: relative;
   }
 
+  // ── Entry animation ──────────────────────────────────────────────────────────
+  // Runs off CSS rather than window.load, so hero copy paints immediately instead
+  // of waiting on every image to finish downloading. `both` fill mode holds the
+  // opening frame during the delay and the closing frame afterwards.
+  @keyframes hero-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .hero-photo-wrapper,
+  h1,
+  .hero-role,
+  .hero-ticker,
+  .hero-badges,
+  .hero-bio,
+  .hero-currently,
+  .hero-links {
+    animation: hero-enter 0.5s var(--ease-out, ease-out) both;
+  }
+
+  .hero-photo-wrapper { animation-delay: 0s;    }
+  h1                  { animation-delay: 0.06s; }
+  .hero-role          { animation-delay: 0.12s; }
+  .hero-ticker        { animation-delay: 0.18s; }
+  .hero-badges        { animation-delay: 0.22s; }
+  .hero-bio           { animation-delay: 0.26s; }
+  .hero-currently     { animation-delay: 0.30s; }
+  .hero-links         { animation-delay: 0.34s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photo-wrapper,
+    h1,
+    .hero-role,
+    .hero-ticker,
+    .hero-badges,
+    .hero-bio,
+    .hero-currently,
+    .hero-links {
+      animation: none;
+    }
+  }
+
   .hero-photo-wrapper {
     position: relative;
     display: inline-block;

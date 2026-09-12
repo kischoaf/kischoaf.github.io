@@ -17,14 +17,6 @@
     letter-spacing: -0.02em;
   }
 
-  .footer-tagline {
-    font-size: 1rem;
-    color: rgba(203, 213, 225, 0.8);
-    line-height: 1.6;
-    margin: 0 auto 2rem;
-    max-width: 480px;
-  }
-
   // Terminal-style contact block
   .footer-terminal {
     display: inline-block;
@@ -84,12 +76,6 @@
       &:hover {
         color: #FFFFFF;
       }
-    }
-
-    // "[OPEN]" indicator
-    .ft-open {
-      color: #34D399;
-      font-weight: 600;
     }
 
     // Blinking cursor on last line

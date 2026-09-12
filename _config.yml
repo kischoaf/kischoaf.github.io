@@ -1,10 +1,46 @@
 title: "Kieran Schoaf"
+tagline: "Network Engineer"
 email: kischoaf@gmail.com
 description: >-
-  Network Engineer & IT Professional with a BS in Network Engineering from DePaul University.
-baseurl: "/"
-url: "https://kischoaf.github.io/"
+  Network engineer specializing in Cisco infrastructure and Python automation.
+  Led 75+ switch migrations across healthcare environments with zero unplanned downtime.
+  CCNA and Network+ certified.
+baseurl: ""
+url: "https://kieranschoaf.com"
 linkedin_username: "kieranschoaf"
+
+author:
+  name: "Kieran Schoaf"
+  email: kischoaf@gmail.com
+
+social:
+  name: "Kieran Schoaf"
+  links:
+    - https://linkedin.com/in/kieranschoaf
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /assets/img/social-card.jpg
+        width: 1200
+        height: 630
+
+# Repo-only files that should never be published
+exclude:
+  - README.md
+  - CLAUDE.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
 
 currently: "Currently studying for CCNP Service Provider and building a BGP lab on eve.ng"
 
@@ -16,19 +52,24 @@ bio: >-
   break it at home, I'm confident deploying it at scale. CCNA and Network+ certified,
   DePaul Network Engineering grad, always building something.
 
+# Section links are root-relative so they also work from project and post pages
 nav_links:
   - title: About
-    url: "#about"
+    url: "/#about"
   - title: Experience
-    url: "#experience"
+    url: "/#experience"
   - title: Projects
-    url: "#projects"
+    url: "/#projects"
   - title: Skills
-    url: "#skills"
+    url: "/#skills"
   - title: Education
-    url: "#education"
+    url: "/#education"
+  - title: Lab
+    url: "/#lab"
+  - title: Notes
+    url: "/notes/"
   - title: Contact
-    url: "#contact"
+    url: "/#contact"
 
 sass:
   sass_dir: _sass

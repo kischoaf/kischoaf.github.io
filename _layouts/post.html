@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="post-banner">
+    <div class="container">
+        <a href="/notes/" class="page-back-link">&larr; Field Notes</a>
+        <h1 class="post-banner-title">{{ page.title }}</h1>
+        <div class="post-meta">
+            <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+            {% if page.tags and page.tags.size > 0 %}
+            <div class="post-tags">{% for tag in page.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container post">
+    {{ content }}
+    <div class="post-footer-nav">
+        <a href="/notes/" class="page-back-link">&larr; Back to Field Notes</a>
+    </div>
+</div>

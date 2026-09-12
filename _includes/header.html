@@ -2,18 +2,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1E293B">
-    <meta property="og:title" content="{{ site.title }} - Portfolio">
-    <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:image" content="{{ site.url }}/assets/img/social-link.jpg">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Site CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css?v={{ site.time | date: '%s' }}">
-    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon" />
+
+    {% seo %}
 </head>
