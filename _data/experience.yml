@@ -3,10 +3,8 @@
   logo: ahead.jpg
   dates: Dec 2022 - Present
   desc: >-
-    Lead network infrastructure modernization for a multi-hospital healthcare system,
-    directing switch migrations across 10+ hospital locations using Cisco Catalyst and
-    Nexus platforms. Full lifecycle ownership from pre-staging through post-migration
-    stabilization, coordinating onsite engineering teams in mission-critical environments.
+    Lead switch migrations for a multi-hospital healthcare system on Cisco Catalyst and
+    Nexus, owning each site from pre-staging through post-migration stabilization.
   highlights:
     - "75+ switch migrations across 10+ hospitals with zero unplanned downtime"
     - "Built a Python/Netmiko automation toolkit used on every migration, saving 3+ hours per cutover"
@@ -18,9 +16,8 @@
   logo: Brainsurf.png
   dates: Jun 2022 - Dec 2022
   desc: >-
-    Provided desktop and systems support for 45+ clients in a fast-paced MSP environment
-    while targeting a network engineering role. Managed Windows/MacOS endpoints, Active
-    Directory, Exchange Server, and O365 administration.
+    Desktop and systems support at a fast-paced MSP while working toward a network
+    engineering role.
   highlights:
     - "Supported 45+ clients across Windows/macOS, Active Directory, Exchange, and O365"
     - "Led employee onboarding workflows: account provisioning, security access, hardware deployments"
@@ -31,9 +28,8 @@
   dates: Nov 2020 - Jun 2022
   logo: cmit.jpg
   desc: >-
-    Primary technical resource for a 2-person MSP supporting small business clients while
-    completing a full course load in Network Engineering. Handled hardware troubleshooting,
-    software deployments, network infrastructure, and client communications end-to-end.
+    Primary technical resource for a two-person MSP serving small businesses, while
+    completing a full course load in Network Engineering.
   highlights:
     - "Deployed and configured SentinelOne endpoint security across client environments"
     - "Handled router/switch installations and wireless access point deployments for small office networks"

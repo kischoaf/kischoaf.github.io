@@ -6,8 +6,11 @@
 
 <body>
     {% include navbar.html %}
-    {{ content }}
-    {% include scroll-fade.html %}
+    <main id="main">
+        {{ content }}
+    </main>
+    {% include footer.html %}
+    {% include reveal.html %}
 </body>
 
 </html>

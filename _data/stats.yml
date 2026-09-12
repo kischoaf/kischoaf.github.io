@@ -1,0 +1,8 @@
+- value: "75+"
+  label: Switch migrations
+- value: "10+"
+  label: Hospital locations
+- value: "0"
+  label: Unplanned downtime events
+- value: "3+ hrs"
+  label: Saved per cutover

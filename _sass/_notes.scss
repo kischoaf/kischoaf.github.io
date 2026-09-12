@@ -1,17 +1,10 @@
-// Homepage preview
-#notes {
-  background-color: #F1F5F9;
-  border-top: 1px solid $color-border;
-  border-bottom: 1px solid $color-border;
-}
+@use 'tokens' as *;
 
+// Homepage preview
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-  padding: 0 1rem;
-  max-width: 1200px;
-  margin: 0 auto 2.5rem;
 }
 
 .note-card {
@@ -98,6 +91,11 @@
 .post-banner {
   background: $color-primary;
   padding: 2rem 0 2.25rem;
+
+  // Match the article column so the title lines up with the body text
+  .container {
+    max-width: 780px;
+  }
 }
 
 .post-banner-title {

@@ -19,7 +19,7 @@ permalink: /notes/
             <time class="note-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y-%m-%d" }}</time>
             <a href="{{ post.url | relative_url }}" class="notes-index-link">{{ post.title }}</a>
             {% if post.tags and post.tags.size > 0 %}
-            <div class="notes-index-tags">{% for tag in post.tags %}<span class="lab-tag">{{ tag }}</span>{% endfor %}</div>
+            <div class="notes-index-tags">{% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
             {% endif %}
         </li>
         {% endfor %}

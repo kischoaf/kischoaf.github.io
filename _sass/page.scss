@@ -1,13 +1,4 @@
-p, h1, h2, h3, h4, h5, h6, button {
-    font-family: $font-family;
-}
-
-body {
-    background-color: $color-bg;
-    background-size: cover;
-    overflow-x: hidden;
-    font-family: $font-family;
-}
+@use 'tokens' as *;
 
 // Page detail banner
 .page-banner {
@@ -175,6 +166,35 @@ body {
             line-height: 1.5;
         }
     }
+}
+
+// 404 page
+.not-found {
+    text-align: center;
+
+    .container {
+        max-width: 560px;
+    }
+}
+
+.not-found__code {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: $color-accent;
+}
+
+.not-found__title {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.not-found__text {
+    margin: 0 0 2rem;
+    color: $color-text-muted;
 }
 
 hr {

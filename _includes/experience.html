@@ -1,72 +1,36 @@
 <section id="experience" class="section">
     <div class="container">
-        <h2 class="section-heading">Work Experience</h2>
-        <div class="experience-actions">
-            <a href="{{ '/assets/docs/Resume.pdf' | relative_url }}" class="btn-primary-custom" target="_blank" rel="noopener">
-                View Resume
-            </a>
-            <a href="{{ '/assets/docs/Resume.pdf' | relative_url }}" class="btn-outline-custom" download>
-                Download Resume
-            </a>
-        </div>
-        <div class="card-container">
-            {% for item in site.data.experience %}
-            <div class="card experience-card" data-index="{{ forloop.index0 }}">
-                {% if item.logo %}
-                <div class="icon">
-                    <img src="/assets/img/experience/{{ item.logo }}" alt="{{ item.company }} logo" loading="lazy">
-                </div>
-                {% endif %}
-                <div class="info">
-                    <p class="title">{{ item.role }}</p>
-                    <p class="location">{{ item.company }}</p>
-                    <p class="dates">{{ item.dates }}</p>
-                    {% if item.desc %}
-                    <p class="desc">{{ item.desc }}</p>
-                    {% endif %}
-                    {% if item.highlights %}
-                    <ul class="desc-highlights">
-                        {% for point in item.highlights %}
+        {% include section-header.html title="Experience" %}
+
+        <ol class="timeline">
+            {% for job in site.data.experience %}
+            <li class="timeline__item reveal">
+                <p class="timeline__dates">{{ job.dates }}</p>
+                <div class="timeline__body">
+                    <div class="timeline__header">
+                        {% if job.logo %}
+                        <img class="timeline__logo" src="{{ '/assets/img/experience/' | append: job.logo | relative_url }}" alt="" width="44" height="44" loading="lazy" decoding="async">
+                        {% endif %}
+                        <div>
+                            <h3 class="timeline__role">{{ job.role }}</h3>
+                            <p class="timeline__company">{{ job.company }}</p>
+                        </div>
+                    </div>
+                    {% if job.desc %}<p class="timeline__desc">{{ job.desc }}</p>{% endif %}
+                    {% if job.highlights %}
+                    <ul class="timeline__highlights">
+                        {% for point in job.highlights %}
                         <li>{{ point }}</li>
                         {% endfor %}
                     </ul>
                     {% endif %}
                 </div>
-            </div>
+            </li>
             {% endfor %}
-        </div>
+        </ol>
+
+        <p class="section-footer">
+            <a class="text-link" href="{{ '/assets/docs/Resume.pdf' | relative_url }}" target="_blank" rel="noopener">View full resume <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </p>
     </div>
 </section>
-
-<script>
-(function() {
-    var cards = document.querySelectorAll('#experience .card');
-    cards.forEach(function(card, i) {
-        var fromLeft = (i % 2 === 0);
-        card.style.opacity = '0';
-        card.style.transform = fromLeft ? 'translateX(-80px)' : 'translateX(80px)';
-    });
-
-    var animated = false;
-    function animateCards() {
-        if (animated) return;
-        var section = document.getElementById('experience');
-        if (!section) return;
-        var rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            animated = true;
-            cards.forEach(function(card, i) {
-                setTimeout(function() {
-                    card.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateX(0)';
-                }, i * 200);
-            });
-            window.removeEventListener('scroll', animateCards);
-        }
-    }
-
-    window.addEventListener('scroll', animateCards);
-    window.addEventListener('load', animateCards);
-})();
-</script>

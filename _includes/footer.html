@@ -1,39 +1,24 @@
 <footer id="contact" class="site-footer">
-    <div class="footer-content">
-        <h2 class="footer-heading">Let's Build Something</h2>
-
-        <div class="footer-terminal" aria-label="Contact terminal block">
-            <div class="ft-line">
-                <span class="ft-prompt">&gt;</span>
-                <span class="ft-cmd">ping {{ site.email }}</span>
+    <div class="container">
+        <div class="site-footer__cta">
+            <div>
+                <h2 class="site-footer__title">Let's talk</h2>
+                <p class="site-footer__text">Want to talk networks, automation, or something you saw here? Email is the fastest way to reach me.</p>
             </div>
-            <div class="ft-line ft-output">
-                PING {{ site.email }} &hellip; Host is <span class="ft-up">UP</span>
-            </div>
-            <div class="ft-line ft-output">
-                Reply from: <a href="mailto:{{ site.email }}" class="ft-link">{{ site.email }}</a>
-            </div>
-            <div class="ft-line">
-                <span class="ft-prompt">&gt;</span>
-                <span class="ft-cursor">▋</span>
+            <div class="site-footer__actions">
+                <a class="btn btn--primary" href="mailto:{{ site.email }}">{{ site.email }}</a>
+                {% if site.linkedin_username and site.linkedin_username != "" %}
+                <a class="btn btn--on-dark" href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">LinkedIn</a>
+                {% endif %}
             </div>
         </div>
 
-        <div class="footer-social">
-            {% if site.linkedin_username and site.linkedin_username != "" %}
-            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-                LinkedIn
-            </a>
-            {% endif %}
-            <a href="mailto:{{ site.email }}" aria-label="Email">
-                Email
-            </a>
-            {% if site.twitter_username and site.twitter_username != "" %}
-            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" aria-label="Twitter/X">
-                Twitter/X
-            </a>
-            {% endif %}
+        <div class="site-footer__bottom">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+            <ul class="site-footer__links">
+                <li><a href="{{ '/assets/docs/Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Resume</a></li>
+                <li><a href="{{ '/notes/' | relative_url }}">Field Notes</a></li>
+            </ul>
         </div>
-        <p class="footer-text">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
     </div>
 </footer>

@@ -1,76 +1,40 @@
-<section id="about" class="hero">
-    <div class="hero-content">
-        <div class="hero-photo-wrapper">
-            <img src="{{ '/assets/img/headshot.jpg' | relative_url }}" alt="Photo of {{ site.title }}"
-                 class="hero-photo" width="152" height="152" fetchpriority="high" decoding="async">
-        </div>
-        <h1>{{ site.title }}</h1>
-        <p class="hero-role">Network Engineer <span class="hero-role-sep">·</span> CCNA <span class="hero-role-sep">·</span> Healthcare IT</p>
+<section id="top" class="hero">
+    <div class="container hero__inner">
+        <div class="hero__text">
+            <p class="hero__eyebrow">{{ site.tagline }}</p>
+            <h1 class="hero__title">{{ site.title }}</h1>
+            <p class="hero__headline">{{ site.headline }}</p>
+            <p class="hero__bio">{{ site.bio }}</p>
 
-        <!-- Scrolling skill ticker — two identical copies for a seamless loop -->
-        <div class="hero-ticker" aria-hidden="true">
-            <div class="hero-ticker-track">
-                <span class="hero-ticker-copy">
-                    <span class="hero-ticker-token">Cisco IOS-XE</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Python</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Netmiko</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">DNS</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Docker</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Cloudflare</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Unraid</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Catalyst 9300</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">CCNA</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Network+</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">SSH</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">openpyxl</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">AdGuard</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Homelab</span><span class="hero-ticker-sep">◆</span>
-                </span>
-                <!-- Duplicate — fills in as the first copy scrolls off screen -->
-                <span class="hero-ticker-copy" aria-hidden="true">
-                    <span class="hero-ticker-token">Cisco IOS-XE</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Python</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Netmiko</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">DNS</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Docker</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Cloudflare</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Unraid</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Catalyst 9300</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">CCNA</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Network+</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">SSH</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">openpyxl</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">AdGuard</span><span class="hero-ticker-sep">◆</span>
-                    <span class="hero-ticker-token">Homelab</span><span class="hero-ticker-sep">◆</span>
-                </span>
+            <div class="hero__actions">
+                <a href="{{ '/assets/docs/Resume.pdf' | relative_url }}" class="btn btn--primary" target="_blank" rel="noopener">View resume</a>
+                {% if site.linkedin_username and site.linkedin_username != "" %}
+                <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="btn btn--secondary" target="_blank" rel="noopener">LinkedIn</a>
+                {% endif %}
+                <a href="mailto:{{ site.email }}" class="btn btn--secondary">Email me</a>
             </div>
+
+            {% if site.currently %}
+            <p class="hero__status"><span class="hero__status-dot" aria-hidden="true"></span>{{ site.currently }}</p>
+            {% endif %}
         </div>
 
-        <div class="hero-badges">
-            <span class="badge">Cisco Catalyst &amp; Nexus</span>
-            <span class="badge">Python Automation</span>
-            <span class="badge">Healthcare Infrastructure</span>
-            <span class="badge">Network+</span>
-        </div>
-        <p class="hero-bio">{{ site.bio }}</p>
-        {% if site.currently %}
-        <p class="hero-currently">
-            <span class="hero-currently-dot"></span>
-            {{ site.currently }}
-        </p>
-        {% endif %}
-        <div class="hero-links">
-            <a href="/assets/docs/Resume.pdf" class="btn-primary-custom" target="_blank" rel="noopener">
-                Resume
-            </a>
-            {% if site.linkedin_username and site.linkedin_username != "" %}
-            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="btn-outline-custom" target="_blank" rel="noopener">
-                LinkedIn
-            </a>
-            {% endif %}
-            <a href="mailto:{{ site.email }}" class="btn-outline-custom">
-                Email
-            </a>
+        <div class="hero__photo-wrap">
+            <img src="{{ '/assets/img/headshot.jpg' | relative_url }}" alt="Portrait of {{ site.title }}"
+                 class="hero__photo" width="304" height="304" fetchpriority="high" decoding="async">
         </div>
     </div>
+
+    {% if site.data.stats %}
+    <div class="container">
+        <dl class="stats">
+            {% for stat in site.data.stats %}
+            <div class="stats__item">
+                <dt class="stats__label">{{ stat.label }}</dt>
+                <dd class="stats__value">{{ stat.value }}</dd>
+            </div>
+            {% endfor %}
+        </dl>
+    </div>
+    {% endif %}
 </section>

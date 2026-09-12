@@ -1,0 +1,38 @@
+// === Design tokens ===
+// Sass variables only (no CSS output), shared by every partial via `@use 'tokens' as *;`
+
+// Surfaces
+$color-bg: #F8FAFC;
+$color-bg-white: #FFFFFF;
+$color-bg-muted: #F1F5F9;
+
+// Text
+$color-ink: #0F172A;
+$color-primary: #1E293B;
+$color-primary-light: #334155;
+$color-text: #334155;
+$color-text-muted: #64748B;
+
+// Accent
+$color-accent: #2563EB;
+$color-accent-hover: #1D4ED8;
+$color-accent-soft: rgba(37, 99, 235, 0.08);
+
+// Lines
+$color-border: #E2E8F0;
+$color-border-strong: #CBD5E1;
+
+// Dark surfaces (footer, banners)
+$color-footer-bg: #0F172A;
+$color-footer-text: #CBD5E1;
+
+$font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+$container-width: 1120px;
+$card-radius: 0.75rem;
+$transition-speed: 0.2s;
+
+$bp-sm: 600px;
+$bp-md: 768px;
+$bp-lg: 1024px;

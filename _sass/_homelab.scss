@@ -1,135 +1,125 @@
-#lab { background-color: #FFFFFF; }
+@use 'tokens' as *;
 
-.lab-intro { max-width: 680px; margin: 0 auto 2.5rem; }
-
-.lab-grid { margin-bottom: 2.5rem; }
-
-.lab-card {
-  flex-direction: column;
-  border-left: 3px solid transparent;
-  transition: box-shadow $transition-speed ease, transform $transition-speed ease, border-left-color $transition-speed ease;
-
-  &:hover {
-    border-left-color: $color-accent;
-    box-shadow: -3px 4px 16px rgba(37,99,235,0.12), 0 4px 12px $color-shadow-hover;
-    transform: translateY(-3px) translateX(2px);
-  }
-
-  .info { width: 100%; }
+.lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 2.5rem;
 }
 
-.lab-card-header {
+.lab__gear {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background-color: $color-bg-white;
+  border: 1px solid $color-border;
+  border-radius: $card-radius;
+}
+
+.lab-item__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 0.2rem;
-
-  .title { flex: 1; }
+  gap: 0.75rem;
 }
 
-.lab-status {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.15rem 0.55rem;
-  border-radius: var(--radius-full, 999px);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.lab-status--production {
-  background: rgba(52,211,153,0.12);
-  color: #059669;
-  border: 1px solid rgba(52,211,153,0.3);
-}
-
-.lab-status--active-study {
-  background: rgba(37,99,235,0.08);
-  color: $color-accent;
-  border: 1px solid rgba(37,99,235,0.2);
-}
-
-.lab-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem;
-  margin-top: 0.75rem;
-}
-
-.lab-tag {
-  padding: 0.2rem 0.55rem;
-  background: rgba(30,41,59,0.05);
-  color: $color-primary-light;
-  border: 1px solid rgba(30,41,59,0.12);
-  border-radius: var(--radius-sm, 0.25rem);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-.lab-topology-label {
-  font-size: 0.74rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  color: $color-primary-light;
-  text-align: center;
-  margin: 0 0 0.75rem;
-}
-
-.lab-terminal {
-  background: $color-primary;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: $card-radius;
-  overflow: hidden;
-  max-width: 680px;
-  margin: 0 auto;
-  box-shadow: var(--shadow-md);
-}
-
-.lab-terminal-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1rem;
-  background: rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.lab-terminal-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.lab-terminal-dot--red    { background: #FF5F57; }
-.lab-terminal-dot--yellow { background: #FEBC2E; }
-.lab-terminal-dot--green  { background: #28C840; }
-
-.lab-terminal-title {
-  font-family: monospace;
-  font-size: 0.75rem;
-  color: rgba(203,213,225,0.5);
-  margin: 0 auto;
-}
-
-.lab-topology {
-  font-family: monospace;
-  font-size: 0.8rem;
-  line-height: 1.55;
-  color: rgba(203,213,225,0.85);
-  padding: 1.25rem 1.5rem;
+.lab-item__name {
   margin: 0;
-  white-space: pre;
-  overflow-x: auto;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .lab-topology {
-    font-size: 0.68rem;
-    padding: 1rem;
+.lab-item__role {
+  margin: 0.2rem 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-accent;
+}
+
+.lab-item__desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: $color-text-muted;
+}
+
+.lab-item__link {
+  align-self: flex-start;
+  margin-top: 0.85rem;
+  font-size: 0.875rem;
+}
+
+.status {
+  flex-shrink: 0;
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status--production {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #047857;
+}
+
+.status--active-study {
+  background-color: $color-accent-soft;
+  color: $color-accent-hover;
+}
+
+.lab__topology {
+  margin: 0;
+  overflow: hidden;
+  background-color: $color-ink;
+  border-radius: $card-radius;
+}
+
+.lab__topology-label {
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+.lab__topology-diagram {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  overflow-x: auto;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  line-height: 1.25; // tight enough that box-drawing verticals join up
+  color: $color-footer-text;
+}
+
+@media (max-width: $bp-lg) {
+  .lab {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .lab__gear {
+    grid-template-columns: 1fr;
+  }
+
+  // Sized so the 46-column diagram fits a 390px screen without scrolling
+  .lab__topology-diagram {
+    padding: 1.25rem 1rem;
+    font-size: 0.6875rem;
   }
 }

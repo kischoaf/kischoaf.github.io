@@ -1,68 +1,30 @@
-<section id="projects" class="section">
+<section id="projects" class="section section--muted">
     <div class="container">
-        <h2 class="section-heading">Projects</h2>
-        <p class="section-subtitle">A few of my favorite personal and professional projects.</p>
+        {% include section-header.html title="Projects" lede="Production tooling from my day job and infrastructure I run at home." %}
+
         <div class="project-grid">
             {% for item in site.data.projects %}
-            <a href="/projects/{{ item.page-name }}" class="project-card">
-                <div class="project-thumbnail">
+            <article class="project-card reveal">
+                <div class="project-card__media">
                     {% if item.thumbnail %}
-                    <img src="/assets/img/projects/{{ item.thumbnail }}" alt="{{ item.title }}" loading="lazy">
+                    <img src="{{ '/assets/img/projects/' | append: item.thumbnail | relative_url }}" alt="" loading="lazy" decoding="async">
                     {% endif %}
-                    <div class="project-overlay">
-                        <span class="project-arrow">&rarr;</span>
-                    </div>
                 </div>
-                <div class="project-info">
-                    {% if item.category %}
-                    <p class="project-category">{{ item.category }}</p>
-                    {% endif %}
-                    <h3 class="project-title">{{ item.title }}</h3>
-                    {% if item.desc %}
-                    <p class="project-desc">{{ item.desc }}</p>
-                    {% endif %}
+                <div class="project-card__body">
+                    {% if item.category %}<p class="project-card__category">{{ item.category }}</p>{% endif %}
+                    <h3 class="project-card__title">
+                        <a href="{{ '/projects/' | append: item.page-name | relative_url }}">{{ item.title }}</a>
+                    </h3>
+                    {% if item.desc %}<p class="project-card__desc">{{ item.desc }}</p>{% endif %}
                     {% if item.tags %}
-                    <div class="project-tags">
-                        {% for tag in item.tags %}
-                        <span class="project-tag">{{ tag }}</span>
-                        {% endfor %}
-                    </div>
+                    <ul class="tag-list">
+                        {% for tag in item.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
+                    </ul>
                     {% endif %}
+                    <span class="project-card__cta" aria-hidden="true">Read case study <span class="arrow">&rarr;</span></span>
                 </div>
-            </a>
+            </article>
             {% endfor %}
         </div>
     </div>
 </section>
-
-<script>
-(function() {
-    var cards = document.querySelectorAll('#projects .project-card');
-    cards.forEach(function(card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(40px)';
-    });
-
-    var animated = false;
-    function animateCards() {
-        if (animated) return;
-        var section = document.getElementById('projects');
-        if (!section) return;
-        var rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            animated = true;
-            cards.forEach(function(card, i) {
-                setTimeout(function() {
-                    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, i * 150);
-            });
-            window.removeEventListener('scroll', animateCards);
-        }
-    }
-
-    window.addEventListener('scroll', animateCards);
-    window.addEventListener('load', animateCards);
-})();
-</script>

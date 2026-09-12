@@ -1,0 +1,117 @@
+@use 'tokens' as *;
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+// The title link stretches over the whole card, so the card is one click target
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: $color-bg-white;
+  border: 1px solid $color-border;
+  border-radius: $card-radius;
+  transition: border-color $transition-speed ease, box-shadow $transition-speed ease, transform $transition-speed ease;
+
+  &:hover {
+    border-color: $color-border-strong;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+
+    .arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  &:has(a:focus-visible) {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+// Logos stay whole (contain) until real project screenshots replace them
+.project-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: $color-bg-muted;
+  border-bottom: 1px solid $color-border;
+
+  img {
+    position: absolute;
+    inset: 1.25rem;
+    width: calc(100% - 2.5rem);
+    height: calc(100% - 2.5rem);
+    object-fit: contain;
+  }
+}
+
+.project-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.project-card__category {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+.project-card__title {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  a {
+    color: $color-ink;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.project-card__desc {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $color-text-muted;
+}
+
+.project-card .tag-list {
+  margin-bottom: 1.25rem;
+}
+
+.project-card__cta {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-accent;
+}
+
+@media (max-width: $bp-lg) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $bp-md) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

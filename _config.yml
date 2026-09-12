@@ -42,34 +42,30 @@ exclude:
   - vendor/
   - node_modules/
 
-currently: "Currently studying for CCNP Service Provider and building a BGP lab on eve.ng"
+# Hero copy
+headline: >-
+  I lead Cisco switch migrations for a multi-hospital healthcare system and build
+  the Python tooling that makes them faster and safer.
 
 bio: >-
-  Network engineer who learned more in my home lab than I did in most classrooms.
-  I lead healthcare network migrations (75+ switches, zero downtime), specializing
-  in Cisco infrastructure and Python automation. My lab is where I test everything
-  before production—new protocols, automation scripts, weird edge cases. If I can't
-  break it at home, I'm confident deploying it at scale. CCNA and Network+ certified,
-  DePaul Network Engineering grad, always building something.
+  CCNA and Network+ certified, with a BS in Network Engineering from DePaul.
+  Outside of work, my homelab is where I try new protocols and automation
+  before they go anywhere near production.
+
+currently: "Currently studying for CCNP Service Provider and building a BGP lab in EVE-NG"
 
 # Section links are root-relative so they also work from project and post pages
 nav_links:
-  - title: About
-    url: "/#about"
   - title: Experience
     url: "/#experience"
   - title: Projects
     url: "/#projects"
-  - title: Skills
-    url: "/#skills"
-  - title: Education
-    url: "/#education"
+  - title: Credentials
+    url: "/#credentials"
   - title: Lab
     url: "/#lab"
   - title: Notes
     url: "/notes/"
-  - title: Contact
-    url: "/#contact"
 
 sass:
   sass_dir: _sass

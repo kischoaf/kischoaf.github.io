@@ -29,13 +29,17 @@ This is a Jekyll-based personal portfolio site for Kieran Schoaf. It uses no ext
 - `_posts/` — Field Notes posts (`layout: post`), listed at `/notes/` and previewed on the homepage
 
 **Page structure:**
-- `index.html` assembles the single-page portfolio by composing `_includes/` partials in order: navbar → hero → stats → experience → projects → skills → education → homelab → notes-preview → footer
-- `_layouts/default.html` wraps standalone content pages (project detail pages use `layout: page` which maps to `_layouts/page.html`)
-- `_config.yml` holds all site-wide metadata (name, bio, nav links, social handles) and the build `exclude` list
+- `_layouts/default.html` wraps every page: header → navbar → `<main>` → footer → `reveal.html` (scroll reveal script)
+- `index.html` (`layout: default`) composes the homepage from `_includes/`: hero (with `_data/stats.yml`) → experience → projects → credentials (skills, certs, education) → homelab → notes-preview (only once there are 3+ posts)
+- Section titles use `_includes/section-header.html` (`title`, optional `lede`)
+- Project detail pages use `layout: page`; Field Notes posts use `layout: post`; both build on `default`
+- `_config.yml` holds all site-wide metadata (name, headline, bio, nav links, social handles) and the build `exclude` list
 
 **Styling:**
-- `assets/css/main.scss` imports `_sass/all.scss`, which defines the design tokens and imports the other partials
-- Each major section has its own `.scss` partial; several includes (e.g., `_includes/projects.html`) also carry inline `<script>` blocks for scroll animations
+- `assets/css/main.scss` `@use`s `_sass/all.scss`, which `@use`s each partial; use the Sass module system (`@use`), not `@import`
+- Shared variables (colors, fonts, breakpoints) live in `_sass/_tokens.scss`; every partial starts with `@use 'tokens' as *;`
+- `_sass/_base.scss` holds the reset, layout helpers (`.container`, `.section`), buttons (`.btn`), tags, and the `.reveal` animation
+- Add `reveal` to an element's classes to fade it in once when it scrolls into view
 
 **Assets:**
 - Project thumbnails go in `assets/img/projects/` and are referenced by filename in `_data/projects.yml`

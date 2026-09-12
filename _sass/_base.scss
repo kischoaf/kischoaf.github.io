@@ -1,0 +1,266 @@
+@use 'tokens' as *;
+
+:root {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --nav-height: 4rem;
+}
+
+// === Reset & document ===
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1rem); // clears the sticky nav
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: $color-bg-white;
+  color: $color-text;
+  font-family: $font-family;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  color: $color-ink;
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition-speed ease;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// === Layout ===
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.6rem 1rem;
+  background: $color-ink;
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+
+  &:focus {
+    top: 1rem;
+    color: #FFFFFF;
+  }
+}
+
+.section {
+  padding-block: 6rem;
+}
+
+.section--muted {
+  background-color: $color-bg;
+  border-block: 1px solid $color-border;
+}
+
+.section-header {
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.section-lede {
+  margin: 0.9rem 0 0;
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: $color-text-muted;
+}
+
+.section-footer {
+  margin: 2.5rem 0 0;
+}
+
+.subheading {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+@media (max-width: $bp-md) {
+  .section {
+    padding-block: 4rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
+// === Buttons & links ===
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 0.925rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color $transition-speed ease, border-color $transition-speed ease, color $transition-speed ease;
+}
+
+.btn--primary {
+  background-color: $color-accent;
+  color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.3);
+
+  &:hover {
+    background-color: $color-accent-hover;
+    color: #FFFFFF;
+  }
+}
+
+.btn--secondary {
+  background-color: $color-bg-white;
+  border-color: $color-border;
+  color: $color-ink;
+
+  &:hover {
+    background-color: $color-bg;
+    border-color: $color-border-strong;
+    color: $color-ink;
+  }
+}
+
+.btn--on-dark {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+  }
+}
+
+.btn--sm {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+
+  &:hover .arrow {
+    transform: translateX(3px);
+  }
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform $transition-speed ease;
+}
+
+// === Tags ===
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background-color: $color-bg-muted;
+  color: $color-primary-light;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.tag--lg {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid $color-border;
+  background-color: $color-bg-white;
+  color: $color-text;
+  font-size: 0.875rem;
+}
+
+// === Reveal on scroll ===
+// Hidden only when JS is running (html.js), so content never stays invisible
+.js .reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
