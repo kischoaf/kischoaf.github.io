@@ -49,7 +49,7 @@ def capture_snapshot(device_list, output_dir):
 
 **Error handling in network automation is brutal.** Devices go unreachable mid-script. SSH timeouts during long operations. A switch reboots unexpectedly. I added retry logic with exponential backoff and made sure every failed device produced a clear error entry in the output rather than crashing the whole run. In healthcare environments, a partial result is better than no result.
 
-**Build for the next engineer.** The tool needed to work for other team members who weren't Python-fluent. That meant clear CLI flags, a `--dry-run` mode, readable output, and a README that assumed nothing. I added a config file format so they could define device lists without editing Python.
+**Build for the next engineer.** The tool needed to work for other team members who weren't Python-fluent. That's why it's a GUI that launches from a single script: nobody running a cutover at 2 AM should have to remember which script to call or what arguments to pass. Credentials are entered at runtime in the GUI instead of living in files, and the Excel port maps and stack summaries it produces are usable by other engineers without any cleanup.
 
 ## The Result
 
